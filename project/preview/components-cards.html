@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 14px; background: #080A0F; font-family: 'DM Sans', sans-serif; display: flex; gap: 12px; flex-wrap: wrap; align-items: flex-start; }
+  .label { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: #394050; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+
+  /* Mission Card */
+  .mission-card {
+    background: #111318; border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px; padding: 14px 16px; width: 200px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  .mission-card:hover { border-color: rgba(255,255,255,0.14); box-shadow: 0 4px 16px rgba(0,0,0,0.45); }
+  .mc-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+  .mc-title { font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 600; color: #EEF0F5; line-height: 1.3; }
+  .badge { font-family: 'JetBrains Mono', monospace; font-size: 9px; padding: 2px 7px; border-radius: 9999px; }
+  .b-active { background: rgba(52,211,153,0.1); color: #34D399; border: 1px solid rgba(52,211,153,0.2); }
+  .b-warn   { background: rgba(251,191,36,0.1);  color: #FBBF24; border: 1px solid rgba(251,191,36,0.2); }
+  .mc-desc { font-size: 11px; color: #556070; line-height: 1.5; margin-bottom: 10px; }
+  .progress-track { background: rgba(255,255,255,0.06); border-radius: 9999px; height: 4px; overflow: hidden; margin-bottom: 6px; }
+  .progress-fill { height: 100%; border-radius: 9999px; background: #2563EB; }
+  .mc-meta { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: #394050; display: flex; justify-content: space-between; }
+
+  /* Metric Card */
+  .metric-card {
+    background: #111318; border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px; padding: 14px 16px; width: 130px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  }
+  .metric-val { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: #EEF0F5; letter-spacing: -0.03em; line-height: 1; margin-bottom: 4px; }
+  .metric-label { font-size: 11px; color: #556070; }
+  .metric-delta { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: #34D399; margin-top: 6px; }
+  .metric-delta.neg { color: #F84B4B; }
+
+  /* Module Card */
+  .module-card {
+    background: #111318; border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px; padding: 14px 16px; width: 180px;
+  }
+  .module-icon { width: 32px; height: 32px; border-radius: 8px; background: rgba(37,99,235,0.15); border: 1px solid rgba(37,99,235,0.25); display: flex; align-items: center; justify-content: center; margin-bottom: 10px; font-size: 14px; color: #60A5FA; }
+  .module-title { font-family: 'Space Grotesk', sans-serif; font-size: 12px; font-weight: 600; color: #EEF0F5; margin-bottom: 4px; }
+  .module-desc { font-size: 10px; color: #556070; line-height: 1.5; }
+  .module-tags { display: flex; gap: 4px; margin-top: 8px; flex-wrap: wrap; }
+  .m-tag { font-family: 'JetBrains Mono', monospace; font-size: 8px; padding: 1px 6px; border-radius: 3px; background: #1A1E28; color: #556070; border: 1px solid rgba(255,255,255,0.06); }
+</style>
+</head>
+<body>
+  <div>
+    <div class="label">Mission Card</div>
+    <div class="mission-card">
+      <div class="mc-top">
+        <div class="mc-title">Portfolio Rebuild</div>
+        <span class="badge b-active">ACTIVE</span>
+      </div>
+      <div class="mc-desc">New personal site with Quincy OS design system.</div>
+      <div class="progress-track"><div class="progress-fill" style="width:68%"></div></div>
+      <div class="mc-meta"><span>68% complete</span><span>3d ago</span></div>
+    </div>
+  </div>
+  <div>
+    <div class="label">Mission Card</div>
+    <div class="mission-card">
+      <div class="mc-top">
+        <div class="mc-title">Conference Talk</div>
+        <span class="badge b-warn">IN PROGRESS</span>
+      </div>
+      <div class="mc-desc">Slides + demo for React Summit 2026.</div>
+      <div class="progress-track"><div class="progress-fill" style="width:35%;background:#FBBF24"></div></div>
+      <div class="mc-meta"><span>35% complete</span><span>1w ago</span></div>
+    </div>
+  </div>
+  <div>
+    <div class="label">Metric Cards</div>
+    <div style="display:flex;gap:8px">
+      <div class="metric-card">
+        <div class="metric-val">14</div>
+        <div class="metric-label">PRs merged</div>
+        <div class="metric-delta">↑ +3 this week</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-val">92<span style="font-size:16px;color:#556070">%</span></div>
+        <div class="metric-label">Uptime</div>
+        <div class="metric-delta neg">↓ −2%</div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="label">Module Card</div>
+    <div class="module-card">
+      <div class="module-icon">⚡</div>
+      <div class="module-title">Next.js 14</div>
+      <div class="module-desc">App router, RSC, edge runtime deployed.</div>
+      <div class="module-tags">
+        <span class="m-tag">INSTALLED</span>
+        <span class="m-tag">v14.2</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

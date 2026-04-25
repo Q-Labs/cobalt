@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 16px; background: #080A0F; font-family: 'DM Sans', sans-serif; }
+  .label { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: #394050; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 10px; }
+  .row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-bottom: 16px; }
+  button { cursor: pointer; font-family: 'DM Sans', sans-serif; font-weight: 600; border: none; outline: none; transition: all 0.15s ease; }
+
+  /* Primary */
+  .btn-primary { background: #2563EB; color: #fff; padding: 9px 20px; border-radius: 6px; font-size: 14px; box-shadow: 0 0 0 0 rgba(37,99,235,0); }
+  .btn-primary:hover { background: #3B82F6; box-shadow: 0 0 16px rgba(37,99,235,0.35); }
+
+  /* Danger */
+  .btn-danger { background: #C41313; color: #fff; padding: 9px 20px; border-radius: 6px; font-size: 14px; }
+  .btn-danger:hover { background: #EF2222; }
+
+  /* Ghost */
+  .btn-ghost { background: transparent; color: #8B95A8; padding: 9px 20px; border-radius: 6px; font-size: 14px; border: 1px solid rgba(255,255,255,0.09); }
+  .btn-ghost:hover { background: rgba(255,255,255,0.05); color: #EEF0F5; border-color: rgba(255,255,255,0.15); }
+
+  /* Outline cobalt */
+  .btn-outline { background: transparent; color: #60A5FA; padding: 9px 20px; border-radius: 6px; font-size: 14px; border: 1px solid #2563EB; }
+  .btn-outline:hover { background: rgba(37,99,235,0.12); }
+
+  /* Small */
+  .btn-sm { background: #1A1E28; color: #8B95A8; padding: 5px 12px; border-radius: 5px; font-size: 12px; border: 1px solid rgba(255,255,255,0.08); }
+
+  /* Large */
+  .btn-lg { background: #2563EB; color: #fff; padding: 14px 32px; border-radius: 6px; font-size: 16px; letter-spacing: -0.01em; }
+
+  /* Icon button */
+  .btn-icon { background: #1A1E28; color: #8B95A8; width: 36px; height: 36px; border-radius: 6px; font-size: 16px; border: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; padding: 0; }
+  .btn-icon:hover { color: #EEF0F5; border-color: rgba(255,255,255,0.15); }
+
+  /* Disabled */
+  .btn-disabled { background: #1A1E28; color: #394050; padding: 9px 20px; border-radius: 6px; font-size: 14px; border: 1px solid rgba(255,255,255,0.04); opacity: 0.5; cursor: not-allowed; }
+
+  /* CTA full-width */
+  .btn-cta { background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%); color: #fff; padding: 13px 28px; border-radius: 6px; font-size: 15px; letter-spacing: -0.01em; display: flex; align-items: center; gap: 8px; }
+</style>
+</head>
+<body>
+  <div class="label">Primary Actions</div>
+  <div class="row">
+    <button class="btn-primary">Deploy Module</button>
+    <button class="btn-danger">Remove</button>
+    <button class="btn-ghost">Cancel</button>
+    <button class="btn-outline">View Signal</button>
+  </div>
+  <div class="label">Sizes</div>
+  <div class="row">
+    <button class="btn-sm">Small</button>
+    <button class="btn-primary">Default</button>
+    <button class="btn-lg">Launch Mission</button>
+  </div>
+  <div class="label">Icon & States</div>
+  <div class="row">
+    <button class="btn-icon">↗</button>
+    <button class="btn-icon">⋯</button>
+    <button class="btn-icon">+</button>
+    <button class="btn-disabled">Disabled</button>
+  </div>
+  <div class="label">CTA</div>
+  <div class="row">
+    <button class="btn-cta">Start Command Center <span style="font-size:16px">→</span></button>
+  </div>
+</body>
+</html>

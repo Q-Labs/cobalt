@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 16px; background: #1A1E28; font-family: 'DM Sans', sans-serif; }
+  .grid { display: grid; grid-template-columns: repeat(11, 1fr); gap: 4px; }
+  .swatch { height: 48px; border-radius: 4px; position: relative; }
+  .swatch:hover::after { content: attr(title); position: absolute; bottom: calc(100% + 4px); left: 50%; transform: translateX(-50%); background: #0F1117; color: #EEF0F5; font-size: 10px; padding: 2px 6px; border-radius: 3px; white-space: nowrap; font-family: 'JetBrains Mono', monospace; pointer-events: none; z-index: 10; }
+  .row { margin-bottom: 12px; }
+  .label { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #556070; margin-bottom: 4px; letter-spacing: 0.06em; text-transform: uppercase; }
+  .name { font-size: 9px; color: #394050; margin-top: 2px; text-align: center; font-family: 'JetBrains Mono', monospace; }
+</style>
+</head>
+<body>
+<div class="row">
+  <div class="label">Black / Charcoal</div>
+  <div class="grid">
+    <div><div class="swatch" style="background:#F4F5F7" title="#F4F5F7"></div><div class="name">50</div></div>
+    <div><div class="swatch" style="background:#E5E7EC" title="#E5E7EC"></div><div class="name">100</div></div>
+    <div><div class="swatch" style="background:#C9CDD8" title="#C9CDD8"></div><div class="name">200</div></div>
+    <div><div class="swatch" style="background:#9AA0B0" title="#9AA0B0"></div><div class="name">300</div></div>
+    <div><div class="swatch" style="background:#6B7283" title="#6B7283"></div><div class="name">400</div></div>
+    <div><div class="swatch" style="background:#434959" title="#434959"></div><div class="name">500</div></div>
+    <div><div class="swatch" style="background:#282D3A" title="#282D3A"></div><div class="name">600</div></div>
+    <div><div class="swatch" style="background:#1A1E28" title="#1A1E28"></div><div class="name">700</div></div>
+    <div><div class="swatch" style="background:#111318;border:1px solid #252A38" title="#111318"></div><div class="name">800</div></div>
+    <div><div class="swatch" style="background:#080A0F;border:1px solid #252A38" title="#080A0F"></div><div class="name">900</div></div>
+    <div><div class="swatch" style="background:#040508;border:1px solid #252A38" title="#040508"></div><div class="name">950</div></div>
+  </div>
+</div>
+<div class="row">
+  <div class="label">Cobalt / Navy / Blue</div>
+  <div class="grid">
+    <div><div class="swatch" style="background:#EBF2FF" title="#EBF2FF"></div><div class="name">50</div></div>
+    <div><div class="swatch" style="background:#BFDBFF" title="#BFDBFF"></div><div class="name">100</div></div>
+    <div><div class="swatch" style="background:#93C1FF" title="#93C1FF"></div><div class="name">200</div></div>
+    <div><div class="swatch" style="background:#60A5FA" title="#60A5FA"></div><div class="name">300</div></div>
+    <div><div class="swatch" style="background:#3B82F6" title="#3B82F6"></div><div class="name">400</div></div>
+    <div><div class="swatch" style="background:#2563EB" title="#2563EB"></div><div class="name">500 ★</div></div>
+    <div><div class="swatch" style="background:#1D4ED8" title="#1D4ED8"></div><div class="name">600</div></div>
+    <div><div class="swatch" style="background:#1E3A8A" title="#1E3A8A"></div><div class="name">700</div></div>
+    <div><div class="swatch" style="background:#172756" title="#172756"></div><div class="name">800</div></div>
+    <div><div class="swatch" style="background:#0F1A3D" title="#0F1A3D"></div><div class="name">900</div></div>
+    <div><div class="swatch" style="background:#080E24;border:1px solid #252A38" title="#080E24"></div><div class="name">950</div></div>
+  </div>
+</div>
+<div class="row">
+  <div class="label">Crimson / Red</div>
+  <div class="grid">
+    <div><div class="swatch" style="background:#FFF1F1" title="#FFF1F1"></div><div class="name">50</div></div>
+    <div><div class="swatch" style="background:#FFD9D9" title="#FFD9D9"></div><div class="name">100</div></div>
+    <div><div class="swatch" style="background:#FFAAAA" title="#FFAAAA"></div><div class="name">200</div></div>
+    <div><div class="swatch" style="background:#FF7070" title="#FF7070"></div><div class="name">300</div></div>
+    <div><div class="swatch" style="background:#F84B4B" title="#F84B4B"></div><div class="name">400</div></div>
+    <div><div class="swatch" style="background:#EF2222" title="#EF2222"></div><div class="name">500 ★</div></div>
+    <div><div class="swatch" style="background:#C41313" title="#C41313"></div><div class="name">600</div></div>
+    <div><div class="swatch" style="background:#9A0E0E" title="#9A0E0E"></div><div class="name">700</div></div>
+    <div><div class="swatch" style="background:#6B0B0B" title="#6B0B0B"></div><div class="name">800</div></div>
+    <div><div class="swatch" style="background:#3D0606" title="#3D0606"></div><div class="name">900</div></div>
+    <div></div>
+  </div>
+</div>
+<div class="row">
+  <div class="label">Silver / Metallic</div>
+  <div class="grid">
+    <div><div class="swatch" style="background:#F8FAFC" title="#F8FAFC"></div><div class="name">50</div></div>
+    <div><div class="swatch" style="background:#F1F5F9" title="#F1F5F9"></div><div class="name">100</div></div>
+    <div><div class="swatch" style="background:#E2E8F0" title="#E2E8F0"></div><div class="name">200</div></div>
+    <div><div class="swatch" style="background:#CBD5E1" title="#CBD5E1"></div><div class="name">300</div></div>
+    <div><div class="swatch" style="background:#94A3B8" title="#94A3B8"></div><div class="name">400 ★</div></div>
+    <div><div class="swatch" style="background:#64748B" title="#64748B"></div><div class="name">500</div></div>
+    <div><div class="swatch" style="background:#475569" title="#475569"></div><div class="name">600</div></div>
+    <div><div class="swatch" style="background:#334155" title="#334155"></div><div class="name">700</div></div>
+    <div><div class="swatch" style="background:#1E293B" title="#1E293B"></div><div class="name">800</div></div>
+    <div><div class="swatch" style="background:#0F172A;border:1px solid #252A38" title="#0F172A"></div><div class="name">900</div></div>
+    <div></div>
+  </div>
+</div>
+</body>
+</html>

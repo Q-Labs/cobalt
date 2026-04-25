@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quincy Iheme — Portfolio</title>
+<link rel="stylesheet" href="../../colors_and_type.css">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg-base); color: var(--text-primary); font-family: var(--font-body); min-height: 100vh; }
+
+/* NAV */
+.nav { position: sticky; top: 0; z-index: 100; background: rgba(4,5,8,0.85); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border-subtle); padding: 0 40px; height: 56px; display: flex; align-items: center; justify-content: space-between; }
+.nav-logo { font-family: var(--font-display); font-size: 15px; font-weight: 700; color: var(--text-primary); letter-spacing: -0.02em; display: flex; align-items: center; gap: 8px; }
+.logo-mark { width: 26px; height: 26px; background: var(--cobalt-500); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; color: #fff; }
+.nav-links { display: flex; gap: 2px; }
+.nav-link { font-size: 13px; color: var(--text-secondary); padding: 5px 12px; border-radius: 5px; cursor: pointer; transition: all 0.15s; text-decoration: none; }
+.nav-link:hover { background: var(--border-subtle); color: var(--text-primary); }
+.nav-link.active { color: var(--text-primary); }
+.nav-cta { background: var(--cobalt-500); color: #fff; font-family: var(--font-body); font-size: 13px; font-weight: 600; padding: 7px 16px; border-radius: 6px; border: none; cursor: pointer; transition: background 0.15s; }
+.nav-cta:hover { background: var(--cobalt-400); }
+
+/* HERO */
+.hero { max-width: 1080px; margin: 0 auto; padding: 80px 40px 64px; }
+.hero-overline { font-family: var(--font-mono); font-size: 11px; color: var(--cobalt-400); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 20px; display: flex; align-items: center; gap: 8px; }
+.hero-overline::before { content: ''; width: 24px; height: 1px; background: var(--cobalt-500); }
+.hero-headline { font-family: var(--font-display); font-size: clamp(40px, 5vw, 68px); font-weight: 700; line-height: 1.08; letter-spacing: -0.04em; color: var(--text-primary); margin-bottom: 20px; }
+.hero-headline span { color: var(--cobalt-400); }
+.hero-sub { font-size: 17px; color: var(--text-secondary); max-width: 520px; line-height: 1.65; margin-bottom: 36px; }
+.hero-actions { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+.btn-primary { background: var(--cobalt-500); color: #fff; font-family: var(--font-body); font-weight: 600; font-size: 14px; padding: 11px 24px; border-radius: 6px; border: none; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: all 0.15s; }
+.btn-primary:hover { background: var(--cobalt-400); box-shadow: var(--shadow-glow-cobalt); }
+.btn-ghost { background: transparent; color: var(--text-secondary); font-family: var(--font-body); font-weight: 500; font-size: 14px; padding: 11px 20px; border-radius: 6px; border: 1px solid var(--border-default); cursor: pointer; transition: all 0.15s; }
+.btn-ghost:hover { border-color: var(--border-strong); color: var(--text-primary); }
+.hero-mono { font-family: var(--font-mono); font-size: 11px; color: var(--text-tertiary); margin-top: 28px; }
+
+/* STAT ROW */
+.stats { display: flex; gap: 40px; padding: 32px 0; border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle); margin-bottom: 64px; flex-wrap: wrap; }
+.stat-val { font-family: var(--font-display); font-size: 32px; font-weight: 700; letter-spacing: -0.03em; color: var(--text-primary); }
+.stat-label { font-size: 12px; color: var(--text-tertiary); margin-top: 2px; }
+
+/* SECTION */
+.section { max-width: 1080px; margin: 0 auto; padding: 0 40px 64px; }
+.section-header { display: flex; align-items: baseline; gap: 12px; margin-bottom: 32px; }
+.section-title { font-family: var(--font-display); font-size: 22px; font-weight: 700; letter-spacing: -0.02em; }
+.section-meta { font-family: var(--font-mono); font-size: 10px; color: var(--text-tertiary); }
+
+/* PROJECT GRID */
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.proj-card { background: var(--bg-surface); border: 1px solid var(--border-default); border-radius: 10px; padding: 20px; transition: all 0.15s; cursor: pointer; position: relative; overflow: hidden; }
+.proj-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(37,99,235,0.04), transparent); opacity: 0; transition: opacity 0.2s; }
+.proj-card:hover { border-color: var(--border-strong); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.proj-card:hover::before { opacity: 1; }
+.proj-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
+.proj-icon { width: 36px; height: 36px; border-radius: 8px; background: var(--accent-subtle); border: 1px solid rgba(37,99,235,0.2); display: flex; align-items: center; justify-content: center; color: var(--cobalt-400); font-size: 15px; }
+.badge { font-family: var(--font-mono); font-size: 9px; padding: 2px 8px; border-radius: 9999px; border: 1px solid; }
+.b-active { background: rgba(52,211,153,0.1); color: #34D399; border-color: rgba(52,211,153,0.2); }
+.b-shipped { background: rgba(96,165,250,0.1); color: var(--cobalt-300); border-color: rgba(96,165,250,0.2); }
+.b-wip    { background: rgba(251,191,36,0.1); color: #FBBF24; border-color: rgba(251,191,36,0.2); }
+.proj-title { font-family: var(--font-display); font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: 6px; letter-spacing: -0.01em; }
+.proj-desc { font-size: 12px; color: var(--text-tertiary); line-height: 1.6; margin-bottom: 12px; }
+.proj-tags { display: flex; gap: 4px; flex-wrap: wrap; }
+.tag { font-family: var(--font-mono); font-size: 9px; padding: 2px 7px; border-radius: 3px; background: var(--bg-raised); color: var(--text-tertiary); border: 1px solid var(--border-subtle); }
+.proj-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--border-subtle); }
+.proj-link { font-family: var(--font-mono); font-size: 10px; color: var(--cobalt-400); text-decoration: none; }
+.prog-mini { width: 60px; height: 3px; background: var(--border-subtle); border-radius: 9999px; overflow: hidden; }
+.prog-mini-fill { height: 100%; border-radius: 9999px; background: var(--cobalt-500); }
+
+/* CAPABILITY STACK */
+.cap-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.cap-card { background: var(--bg-surface); border: 1px solid var(--border-default); border-radius: 8px; padding: 14px 16px; }
+.cap-title { font-family: var(--font-display); font-size: 11px; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 10px; }
+.skill-item { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+.skill-name { font-size: 12px; color: var(--text-secondary); }
+.skill-bar { width: 48px; height: 3px; background: var(--border-subtle); border-radius: 9999px; overflow: hidden; }
+.skill-fill { height: 100%; border-radius: 9999px; }
+
+/* FOOTER */
+footer { border-top: 1px solid var(--border-subtle); padding: 24px 40px; display: flex; justify-content: space-between; align-items: center; max-width: 1080px; margin: 0 auto; }
+.footer-mono { font-family: var(--font-mono); font-size: 10px; color: var(--text-tertiary); }
+.footer-links { display: flex; gap: 16px; }
+.footer-link { font-size: 12px; color: var(--text-tertiary); text-decoration: none; transition: color 0.15s; }
+.footer-link:hover { color: var(--text-primary); }
+
+/* HERO IDENTITY ROW */
+.hero-id-row { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; }
+.hero-avatar { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; object-position: center top; border: 2px solid var(--border-default); flex-shrink: 0; }
+
+/* TWEAKS PANEL */
+#tweaks-panel { display: none; position: fixed; bottom: 24px; right: 20px; width: 220px; background: var(--bg-overlay); border: 1px solid var(--border-strong); border-radius: 10px; padding: 14px; box-shadow: var(--shadow-xl); z-index: 200; font-family: var(--font-body); }
+.tp-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+.tp-title { font-family: var(--font-display); font-size: 12px; font-weight: 600; color: var(--text-primary); }
+.tp-close { background: none; border: none; color: var(--text-tertiary); cursor: pointer; font-size: 16px; padding: 0; line-height: 1; }
+.tp-label { font-family: var(--font-mono); font-size: 9px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; }
+.tp-row { display: flex; gap: 6px; margin-bottom: 12px; }
+.tp-btn { flex: 1; background: var(--bg-raised); border: 1px solid var(--border-default); color: var(--text-secondary); font-family: var(--font-body); font-size: 11px; padding: 5px; border-radius: 5px; cursor: pointer; transition: all 0.12s; text-align: center; }
+.tp-btn.active { background: var(--cobalt-500); border-color: var(--cobalt-500); color: #fff; }
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-logo">
+    <svg width="24" height="24" viewBox="0 0 64 64" fill="none"><rect width="64" height="64" rx="14" fill="#2563EB"/><path d="M 38 43 A 16 16 0 1 1 44 37 L 52 43" stroke="white" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+    Quincy Iheme
+  </div>
+  <div class="nav-links">
+    <a class="nav-link active" href="#">Work</a>
+    <a class="nav-link" href="#">Resume</a>
+    <a class="nav-link" href="#">Writing</a>
+    <a class="nav-link" href="#">Dashboard</a>
+  </div>
+  <button class="nav-cta">Get in touch →</button>
+</nav>
+
+<section class="hero">
+  <!-- Open Q mark — editorial/hero context (Option D) -->
+  <div style="margin-bottom:20px">
+    <svg width="52" height="52" viewBox="0 0 64 64" fill="none">
+      <path d="M 38 43 A 16 16 0 1 1 44 37 L 52 43" stroke="#2563EB" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </svg>
+  </div>
+  <div class="hero-id-row">
+    <img class="hero-avatar" src="../../assets/headshot.jpg" alt="Quincy Iheme">
+    <div>
+      <div class="hero-overline" style="margin-bottom:4px">Cloud129 Technologies</div>
+      <div style="font-family:var(--font-mono);font-size:10px;color:var(--text-tertiary)">Manager 2, Software Dev & Engineering · Comcast</div>
+    </div>
+  </div>
+  <h1 class="hero-headline">
+    Engineering ambition<br>into <span>operating rhythm</span>.
+  </h1>
+  <p class="hero-sub">Engineering leader at Comcast. 12 years of progressive growth from SDET to Manager 2 — building teams, shipping software, and raising the bar. Cloud129 Technologies is where I build for myself. This is that system.</p>
+  <div class="hero-actions">
+    <button class="btn-primary">View Active Missions →</button>
+    <button class="btn-ghost">Download Resume</button>
+  </div>
+  <div class="hero-mono">v4.0.0 · April 2026 · Philadelphia, PA · Hybrid</div>
+
+  <div class="stats">
+    <div><div class="stat-val">12</div><div class="stat-label">Years at Comcast</div></div>
+    <div><div class="stat-val">4</div><div class="stat-label">Active side missions</div></div>
+    <div><div class="stat-val">3</div><div class="stat-label">Bootcamps taught</div></div>
+    <div><div class="stat-val">M2</div><div class="stat-label">Engineering leader</div></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-header">
+    <h2 class="section-title">Active Missions</h2>
+    <span class="section-meta">3 in progress · sorted by priority</span>
+  </div>
+  <div class="grid-3">
+    <div class="proj-card">
+      <div class="proj-top"><div class="proj-icon">⚡</div><span class="badge b-active">ACTIVE</span></div>
+      <div class="proj-title">Quincy OS Design System</div>
+      <div class="proj-desc">Premium personal OS design system for work, life, and ambitious projects. Built in public.</div>
+      <div class="proj-tags"><span class="tag">React</span><span class="tag">CSS</span><span class="tag">Design</span></div>
+      <div class="proj-footer">
+        <a class="proj-link" href="#">quincy-os.dev →</a>
+        <div class="prog-mini"><div class="prog-mini-fill" style="width:68%"></div></div>
+      </div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-top"><div class="proj-icon" style="background:rgba(251,191,36,0.1);border-color:rgba(251,191,36,0.2);color:#FBBF24">📡</div><span class="badge b-wip">IN PROGRESS</span></div>
+      <div class="proj-title">Conference Talk 2026</div>
+      <div class="proj-desc">React Summit talk on AI-assisted development workflows and engineering operating systems.</div>
+      <div class="proj-tags"><span class="tag">Speaking</span><span class="tag">AI/ML</span><span class="tag">React</span></div>
+      <div class="proj-footer">
+        <a class="proj-link" href="#">React Summit →</a>
+        <div class="prog-mini"><div class="prog-mini-fill" style="width:35%;background:#FBBF24"></div></div>
+      </div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-top"><div class="proj-icon" style="background:rgba(52,211,153,0.1);border-color:rgba(52,211,153,0.2);color:#34D399">🧬</div><span class="badge b-active">ACTIVE</span></div>
+      <div class="proj-title">Portfolio v4</div>
+      <div class="proj-desc">Complete rebuild of personal site with Quincy OS tokens and command center dashboard.</div>
+      <div class="proj-tags"><span class="tag">Next.js</span><span class="tag">TypeScript</span></div>
+      <div class="proj-footer">
+        <a class="proj-link" href="#">qiheme.dev →</a>
+        <div class="prog-mini"><div class="prog-mini-fill" style="width:80%;background:#34D399"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-header">
+    <h2 class="section-title">Shipped Work</h2>
+    <span class="section-meta">Installed modules · production deployments</span>
+  </div>
+  <div class="grid-2">
+    <div class="proj-card">
+      <div class="proj-top"><div class="proj-icon" style="background:rgba(148,163,184,0.08);border-color:rgba(148,163,184,0.15);color:#94A3B8">◈</div><span class="badge b-shipped">SHIPPED</span></div>
+      <div class="proj-title">Stock Cerebro</div>
+      <div class="proj-desc">Algorithmic trading dashboard with real-time market signals, risk scoring, and portfolio analytics.</div>
+      <div class="proj-tags"><span class="tag">Python</span><span class="tag">React</span><span class="tag">WebSockets</span><span class="tag">TA-Lib</span></div>
+      <div class="proj-footer"><a class="proj-link" href="#">View project →</a></div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-top"><div class="proj-icon" style="background:rgba(148,163,184,0.08);border-color:rgba(148,163,184,0.15);color:#94A3B8">⬡</div><span class="badge b-shipped">SHIPPED</span></div>
+      <div class="proj-title">Travel OS</div>
+      <div class="proj-desc">Personal travel planning and documentation system. Itinerary builder, expense tracker, trip logs.</div>
+      <div class="proj-tags"><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">MongoDB</span></div>
+      <div class="proj-footer"><a class="proj-link" href="#">View project →</a></div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-top"><div class="proj-icon" style="background:rgba(148,163,184,0.08);border-color:rgba(148,163,184,0.15);color:#94A3B8">⬢</div><span class="badge b-shipped">SHIPPED</span></div>
+      <div class="proj-title">Essence Fitness</div>
+      <div class="proj-desc">Fitness studio booking platform with class scheduling, member management, and payment integration.</div>
+      <div class="proj-tags"><span class="tag">React</span><span class="tag">Express</span><span class="tag">PostgreSQL</span></div>
+      <div class="proj-footer"><a class="proj-link" href="#">View project →</a></div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-top"><div class="proj-icon" style="background:rgba(148,163,184,0.08);border-color:rgba(148,163,184,0.15);color:#94A3B8">⬟</div><span class="badge b-shipped">SHIPPED</span></div>
+      <div class="proj-title">PATCO Schedule iOS</div>
+      <div class="proj-desc">Native iOS app for PATCO commuter rail schedules. Real-time departures, favorites, trip planning.</div>
+      <div class="proj-tags"><span class="tag">Swift</span><span class="tag">iOS</span><span class="tag">CoreData</span></div>
+      <div class="proj-footer"><a class="proj-link" href="#">App Store →</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-header">
+    <h2 class="section-title">Capability Stack</h2>
+    <span class="section-meta">Installed modules · active proficiencies</span>
+  </div>
+  <div class="cap-grid">
+    <div class="cap-card">
+      <div class="cap-title">Frontend</div>
+      <div class="skill-item"><span class="skill-name">React</span><div class="skill-bar"><div class="skill-fill" style="width:95%;background:#2563EB"></div></div></div>
+      <div class="skill-item"><span class="skill-name">TypeScript</span><div class="skill-bar"><div class="skill-fill" style="width:88%;background:#2563EB"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Next.js</span><div class="skill-bar"><div class="skill-fill" style="width:85%;background:#2563EB"></div></div></div>
+      <div class="skill-item"><span class="skill-name">CSS/Tailwind</span><div class="skill-bar"><div class="skill-fill" style="width:92%;background:#2563EB"></div></div></div>
+    </div>
+    <div class="cap-card">
+      <div class="cap-title">Backend</div>
+      <div class="skill-item"><span class="skill-name">Node.js</span><div class="skill-bar"><div class="skill-fill" style="width:90%;background:#34D399"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Python</span><div class="skill-bar"><div class="skill-fill" style="width:80%;background:#34D399"></div></div></div>
+      <div class="skill-item"><span class="skill-name">PostgreSQL</span><div class="skill-bar"><div class="skill-fill" style="width:78%;background:#34D399"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Express</span><div class="skill-bar"><div class="skill-fill" style="width:88%;background:#34D399"></div></div></div>
+    </div>
+    <div class="cap-card">
+      <div class="cap-title">Mobile</div>
+      <div class="skill-item"><span class="skill-name">Swift/iOS</span><div class="skill-bar"><div class="skill-fill" style="width:72%;background:#FBBF24"></div></div></div>
+      <div class="skill-item"><span class="skill-name">React Native</span><div class="skill-bar"><div class="skill-fill" style="width:70%;background:#FBBF24"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Expo</span><div class="skill-bar"><div class="skill-fill" style="width:68%;background:#FBBF24"></div></div></div>
+    </div>
+    <div class="cap-card">
+      <div class="cap-title">Design & Systems</div>
+      <div class="skill-item"><span class="skill-name">Figma</span><div class="skill-bar"><div class="skill-fill" style="width:85%;background:#94A3B8"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Design Systems</span><div class="skill-bar"><div class="skill-fill" style="width:90%;background:#94A3B8"></div></div></div>
+      <div class="skill-item"><span class="skill-name">AWS/Vercel</span><div class="skill-bar"><div class="skill-fill" style="width:75%;background:#94A3B8"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Git/CI</span><div class="skill-bar"><div class="skill-fill" style="width:88%;background:#94A3B8"></div></div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-mono">© 2026 Quincy Iheme · Cloud129 Technologies · v1.0.0</div>
+  <div class="footer-links">
+    <a class="footer-link" href="#">GitHub</a>
+    <a class="footer-link" href="#">LinkedIn</a>
+    <a class="footer-link" href="#">Twitter</a>
+    <a class="footer-link" href="#">Email</a>
+  </div>
+</footer>
+<!-- TWEAKS PANEL -->
+<div id="tweaks-panel">
+  <div class="tp-header">
+    <span class="tp-title">Tweaks</span>
+    <button class="tp-close" onclick="closePanel()">×</button>
+  </div>
+  <div class="tp-label">Theme</div>
+  <div class="tp-row">
+    <button class="tp-btn active" id="btn-dark" onclick="setTheme('dark')">Dark</button>
+    <button class="tp-btn" id="btn-light" onclick="setTheme('light')">Light</button>
+  </div>
+  <div class="tp-label">Hero style</div>
+  <div class="tp-row">
+    <button class="tp-btn active" id="btn-compact" onclick="setHero('compact')">Compact</button>
+    <button class="tp-btn" id="btn-full" onclick="setHero('full')">Full</button>
+  </div>
+</div>
+
+<script>
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{"theme":"dark","hero":"compact"}/*EDITMODE-END*/;
+let tweaks = {...TWEAK_DEFAULTS};
+
+function applyTweaks(t) {
+  document.documentElement.setAttribute('data-theme', t.theme);
+  document.getElementById('btn-dark').classList.toggle('active', t.theme==='dark');
+  document.getElementById('btn-light').classList.toggle('active', t.theme==='light');
+  document.getElementById('btn-compact').classList.toggle('active', t.hero==='compact');
+  document.getElementById('btn-full').classList.toggle('active', t.hero==='full');
+  const stats = document.querySelector('.stats');
+  if (stats) stats.style.display = t.hero==='full' ? 'flex' : 'flex';
+}
+function setTheme(v) {
+  tweaks.theme=v; applyTweaks(tweaks);
+  window.parent.postMessage({type:'__edit_mode_set_keys',edits:{theme:v}},'*');
+}
+function setHero(v) {
+  tweaks.hero=v; applyTweaks(tweaks);
+  window.parent.postMessage({type:'__edit_mode_set_keys',edits:{hero:v}},'*');
+}
+function closePanel() {
+  document.getElementById('tweaks-panel').style.display='none';
+  window.parent.postMessage({type:'__edit_mode_dismissed'},'*');
+}
+window.addEventListener('message',(e)=>{
+  if(e.data?.type==='__activate_edit_mode') document.getElementById('tweaks-panel').style.display='block';
+  if(e.data?.type==='__deactivate_edit_mode') document.getElementById('tweaks-panel').style.display='none';
+});
+window.parent.postMessage({type:'__edit_mode_available'},'*');
+applyTweaks(tweaks);
+</script>
+</body>
+</html>

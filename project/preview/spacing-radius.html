@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 16px; background: #080A0F; font-family: 'DM Sans', sans-serif; }
+  .section { margin-bottom: 16px; }
+  .label { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: #394050; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+  .space-row { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+  .bar { background: rgba(37,99,235,0.25); border-left: 2px solid #2563EB; height: 16px; border-radius: 0 2px 2px 0; }
+  .space-meta { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: #556070; }
+  .radius-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 4px; }
+  .r-card { background: #1A1E28; border: 1px solid rgba(255,255,255,0.08); padding: 10px 14px; display: flex; flex-direction: column; align-items: center; gap: 5px; }
+  .r-box { width: 32px; height: 32px; background: rgba(37,99,235,0.2); border: 1px solid #2563EB; }
+  .r-name { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: #556070; }
+  .divider { height: 1px; background: rgba(255,255,255,0.05); margin: 10px 0; }
+</style>
+</head>
+<body>
+<div class="section">
+  <div class="label">Spacing Scale — 8px base grid</div>
+  <div class="space-row"><div class="bar" style="width:4px"></div><div class="space-meta">space-1 · 4px</div></div>
+  <div class="space-row"><div class="bar" style="width:8px"></div><div class="space-meta">space-2 · 8px</div></div>
+  <div class="space-row"><div class="bar" style="width:12px"></div><div class="space-meta">space-3 · 12px</div></div>
+  <div class="space-row"><div class="bar" style="width:16px"></div><div class="space-meta">space-4 · 16px (base)</div></div>
+  <div class="space-row"><div class="bar" style="width:24px"></div><div class="space-meta">space-6 · 24px</div></div>
+  <div class="space-row"><div class="bar" style="width:32px"></div><div class="space-meta">space-8 · 32px</div></div>
+  <div class="space-row"><div class="bar" style="width:48px"></div><div class="space-meta">space-12 · 48px</div></div>
+  <div class="space-row"><div class="bar" style="width:64px"></div><div class="space-meta">space-16 · 64px</div></div>
+  <div class="space-row"><div class="bar" style="width:96px"></div><div class="space-meta">space-24 · 96px</div></div>
+</div>
+<div class="divider"></div>
+<div class="section">
+  <div class="label">Border Radius</div>
+  <div class="radius-row">
+    <div class="r-card"><div class="r-box" style="border-radius:0"></div><div class="r-name">none · 0</div></div>
+    <div class="r-card"><div class="r-box" style="border-radius:2px"></div><div class="r-name">xs · 2px</div></div>
+    <div class="r-card"><div class="r-box" style="border-radius:4px"></div><div class="r-name">sm · 4px</div></div>
+    <div class="r-card"><div class="r-box" style="border-radius:6px"></div><div class="r-name">md · 6px</div></div>
+    <div class="r-card"><div class="r-box" style="border-radius:10px"></div><div class="r-name">lg · 10px</div></div>
+    <div class="r-card"><div class="r-box" style="border-radius:16px"></div><div class="r-name">xl · 16px</div></div>
+    <div class="r-card"><div class="r-box" style="border-radius:9999px;width:48px;height:20px"></div><div class="r-name">full</div></div>
+  </div>
+</div>
+</body>
+</html>

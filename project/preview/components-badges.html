@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 16px; background: #080A0F; font-family: 'DM Sans', sans-serif; }
+  .label { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: #394050; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 10px; }
+  .row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-bottom: 14px; }
+  .badge {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 500;
+    padding: 3px 9px; border-radius: 9999px; letter-spacing: 0.04em;
+    border: 1px solid transparent;
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; }
+  .b-active  { background: rgba(52,211,153,0.1);  color: #34D399; border-color: rgba(52,211,153,0.2); }
+  .b-warning { background: rgba(251,191,36,0.1);  color: #FBBF24; border-color: rgba(251,191,36,0.2); }
+  .b-danger  { background: rgba(248,75,75,0.1);   color: #F84B4B; border-color: rgba(248,75,75,0.2); }
+  .b-info    { background: rgba(96,165,250,0.1);  color: #60A5FA; border-color: rgba(96,165,250,0.2); }
+  .b-neutral { background: rgba(148,163,184,0.1); color: #94A3B8; border-color: rgba(148,163,184,0.2); }
+  .b-offline { background: rgba(67,73,89,0.2);    color: #556070; border-color: rgba(67,73,89,0.3); }
+  .b-cobalt  { background: rgba(37,99,235,0.15);  color: #60A5FA; border-color: rgba(37,99,235,0.3); }
+  .b-crimson { background: rgba(239,34,34,0.12);  color: #F84B4B; border-color: rgba(239,34,34,0.25); }
+  .b-solid-cobalt  { background: #2563EB; color: #fff; }
+  .b-solid-crimson { background: #C41313; color: #fff; }
+  .b-solid-dark    { background: #1A1E28; color: #8B95A8; border-color: rgba(255,255,255,0.09); }
+  .chip { display: inline-flex; align-items: center; gap: 5px; background: #111318; border: 1px solid rgba(255,255,255,0.08); padding: 4px 10px; border-radius: 6px; font-size: 11px; color: #8B95A8; font-family: 'DM Sans', sans-serif; }
+  .chip-icon { width: 14px; height: 14px; background: #2563EB; border-radius: 3px; }
+</style>
+</head>
+<body>
+  <div class="label">Status Badges</div>
+  <div class="row">
+    <span class="badge b-active"><span class="dot" style="background:#34D399"></span>ACTIVE</span>
+    <span class="badge b-warning"><span class="dot" style="background:#FBBF24"></span>IN PROGRESS</span>
+    <span class="badge b-danger"><span class="dot" style="background:#F84B4B"></span>BLOCKED</span>
+    <span class="badge b-info"><span class="dot" style="background:#60A5FA"></span>SIGNAL</span>
+    <span class="badge b-neutral">PENDING</span>
+    <span class="badge b-offline">OFFLINE</span>
+  </div>
+  <div class="label">Label Badges</div>
+  <div class="row">
+    <span class="badge b-cobalt">MISSION</span>
+    <span class="badge b-crimson">PRIORITY</span>
+    <span class="badge b-solid-cobalt">DEPLOY</span>
+    <span class="badge b-solid-crimson">URGENT</span>
+    <span class="badge b-solid-dark">DRAFT</span>
+    <span class="badge b-neutral">v2.4.1</span>
+    <span class="badge b-info">MODULE</span>
+  </div>
+  <div class="label">Chip Components</div>
+  <div class="row">
+    <span class="chip"><span class="chip-icon"></span>React</span>
+    <span class="chip"><span class="chip-icon" style="background:#C41313"></span>TypeScript</span>
+    <span class="chip"><span class="chip-icon" style="background:#34D399"></span>Node.js</span>
+    <span class="chip"><span class="chip-icon" style="background:#FBBF24"></span>Python</span>
+    <span class="chip">Figma</span>
+    <span class="chip">AWS</span>
+  </div>
+</body>
+</html>

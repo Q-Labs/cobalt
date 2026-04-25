@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 16px 16px 8px; background: #111318; font-family: 'DM Sans', sans-serif; }
+  .section { margin-bottom: 14px; }
+  .label { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: #556070; margin-bottom: 6px; letter-spacing: 0.07em; text-transform: uppercase; }
+  .row { display: flex; gap: 6px; flex-wrap: wrap; }
+  .chip { display: flex; align-items: center; gap: 8px; background: #1A1E28; border: 1px solid rgba(255,255,255,0.07); border-radius: 6px; padding: 6px 10px; }
+  .dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+  .chip-name { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #8B95A8; }
+  .chip-val  { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: #394050; margin-left: 2px; }
+  .divider { width: 100%; height: 1px; background: rgba(255,255,255,0.06); margin: 6px 0; }
+  .mode-toggle { display: flex; gap: 8px; margin-bottom: 10px; }
+  .mode-btn { font-family: 'JetBrains Mono', monospace; font-size: 9px; padding: 2px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1); background: transparent; color: #8B95A8; cursor: pointer; }
+  .mode-btn.active { background: #2563EB; color: #fff; border-color: #2563EB; }
+</style>
+</head>
+<body>
+<div class="section">
+  <div class="label">Surfaces — Dark Mode</div>
+  <div class="row">
+    <div class="chip"><div class="dot" style="background:#040508;border:1px solid #252A38"></div><div class="chip-name">bg-base</div><div class="chip-val">#040508</div></div>
+    <div class="chip"><div class="dot" style="background:#080A0F"></div><div class="chip-name">bg-surface</div><div class="chip-val">#080A0F</div></div>
+    <div class="chip"><div class="dot" style="background:#111318"></div><div class="chip-name">bg-raised</div><div class="chip-val">#111318</div></div>
+    <div class="chip"><div class="dot" style="background:#1A1E28"></div><div class="chip-name">bg-overlay</div><div class="chip-val">#1A1E28</div></div>
+  </div>
+</div>
+<div class="divider"></div>
+<div class="section">
+  <div class="label">Text — Dark Mode</div>
+  <div class="row">
+    <div class="chip"><div class="dot" style="background:#EEF0F5"></div><div class="chip-name">text-primary</div><div class="chip-val">#EEF0F5</div></div>
+    <div class="chip"><div class="dot" style="background:#8B95A8"></div><div class="chip-name">text-secondary</div><div class="chip-val">#8B95A8</div></div>
+    <div class="chip"><div class="dot" style="background:#556070"></div><div class="chip-name">text-tertiary</div><div class="chip-val">#556070</div></div>
+    <div class="chip"><div class="dot" style="background:#394050"></div><div class="chip-name">text-disabled</div><div class="chip-val">#394050</div></div>
+    <div class="chip"><div class="dot" style="background:#60A5FA"></div><div class="chip-name">text-accent</div><div class="chip-val">#60A5FA</div></div>
+    <div class="chip"><div class="dot" style="background:#F84B4B"></div><div class="chip-name">text-danger</div><div class="chip-val">#F84B4B</div></div>
+  </div>
+</div>
+<div class="divider"></div>
+<div class="section">
+  <div class="label">Interactive</div>
+  <div class="row">
+    <div class="chip"><div class="dot" style="background:#2563EB"></div><div class="chip-name">accent-default</div><div class="chip-val">#2563EB</div></div>
+    <div class="chip"><div class="dot" style="background:#3B82F6"></div><div class="chip-name">accent-hover</div><div class="chip-val">#3B82F6</div></div>
+    <div class="chip"><div class="dot" style="background:#1D4ED8"></div><div class="chip-name">accent-pressed</div><div class="chip-val">#1D4ED8</div></div>
+    <div class="chip"><div class="dot" style="background:#EF2222"></div><div class="chip-name">danger-default</div><div class="chip-val">#EF2222</div></div>
+  </div>
+</div>
+<div class="divider"></div>
+<div class="section">
+  <div class="label">Status</div>
+  <div class="row">
+    <div class="chip"><div class="dot" style="background:#34D399"></div><div class="chip-name">active</div></div>
+    <div class="chip"><div class="dot" style="background:#FBBF24"></div><div class="chip-name">warning</div></div>
+    <div class="chip"><div class="dot" style="background:#F84B4B"></div><div class="chip-name">danger</div></div>
+    <div class="chip"><div class="dot" style="background:#60A5FA"></div><div class="chip-name">info</div></div>
+    <div class="chip"><div class="dot" style="background:#94A3B8"></div><div class="chip-name">neutral</div></div>
+    <div class="chip"><div class="dot" style="background:#434959"></div><div class="chip-name">offline</div></div>
+  </div>
+</div>
+</body>
+</html>

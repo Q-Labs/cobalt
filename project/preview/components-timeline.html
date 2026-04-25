@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 14px 16px; background: #080A0F; font-family: 'DM Sans', sans-serif; }
+  .label { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: #394050; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 10px; }
+  .timeline { position: relative; padding-left: 20px; }
+  .timeline::before { content: ''; position: absolute; left: 6px; top: 6px; bottom: 0; width: 1px; background: rgba(255,255,255,0.07); }
+  .t-item { position: relative; margin-bottom: 16px; }
+  .t-dot { position: absolute; left: -17px; top: 4px; width: 10px; height: 10px; border-radius: 50%; border: 2px solid; flex-shrink: 0; }
+  .t-dot-active  { background: #2563EB; border-color: #2563EB; box-shadow: 0 0 8px rgba(37,99,235,0.5); }
+  .t-dot-done    { background: #34D399; border-color: #34D399; }
+  .t-dot-pending { background: #1A1E28; border-color: rgba(255,255,255,0.15); }
+  .t-dot-blocked { background: #C41313; border-color: #EF2222; }
+  .t-title { font-family: 'Space Grotesk', sans-serif; font-size: 12px; font-weight: 600; color: #EEF0F5; margin-bottom: 2px; }
+  .t-title.done { color: #556070; text-decoration: line-through; text-decoration-color: #394050; }
+  .t-meta  { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: #394050; }
+  .t-desc  { font-size: 11px; color: #556070; line-height: 1.5; margin-top: 2px; }
+</style>
+</head>
+<body>
+  <div class="label">Timeline / Milestones</div>
+  <div class="timeline">
+    <div class="t-item">
+      <div class="t-dot t-dot-done"></div>
+      <div class="t-title done">Design System Init</div>
+      <div class="t-meta">2026-04-01 · COMPLETED</div>
+    </div>
+    <div class="t-item">
+      <div class="t-dot t-dot-done"></div>
+      <div class="t-title done">Color tokens locked</div>
+      <div class="t-meta">2026-04-10 · COMPLETED</div>
+    </div>
+    <div class="t-item">
+      <div class="t-dot t-dot-active"></div>
+      <div class="t-title">Portfolio build</div>
+      <div class="t-meta">2026-04-25 · IN PROGRESS</div>
+      <div class="t-desc">Implementing all core screens with Quincy OS tokens.</div>
+    </div>
+    <div class="t-item">
+      <div class="t-dot t-dot-pending"></div>
+      <div class="t-title" style="color:#556070">Conference slides</div>
+      <div class="t-meta">2026-05-10 · PENDING</div>
+    </div>
+    <div class="t-item">
+      <div class="t-dot t-dot-blocked"></div>
+      <div class="t-title" style="color:#F84B4B">Backend API v2</div>
+      <div class="t-meta">2026-05-20 · BLOCKED</div>
+      <div class="t-desc">Waiting on auth service deployment.</div>
+    </div>
+    <div class="t-item">
+      <div class="t-dot t-dot-pending"></div>
+      <div class="t-title" style="color:#556070">Public launch</div>
+      <div class="t-meta">2026-06-01 · PENDING</div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 14px 16px; background: #080A0F; font-family: 'DM Sans', sans-serif; }
+  .label { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: #394050; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 10px; }
+  .section { margin-bottom: 16px; }
+  .prog-row { margin-bottom: 10px; }
+  .prog-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
+  .prog-name { font-size: 11px; font-weight: 500; color: #8B95A8; }
+  .prog-val { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #556070; }
+  .track { height: 6px; background: rgba(255,255,255,0.06); border-radius: 9999px; overflow: hidden; }
+  .track.thin { height: 4px; }
+  .track.thick { height: 10px; }
+  .fill { height: 100%; border-radius: 9999px; }
+  .fill-cobalt  { background: #2563EB; }
+  .fill-crimson { background: #EF2222; }
+  .fill-green   { background: #34D399; }
+  .fill-amber   { background: #FBBF24; }
+  .fill-silver  { background: #475569; }
+  .fill-gradient { background: linear-gradient(90deg, #2563EB, #60A5FA); }
+  .divider { height: 1px; background: rgba(255,255,255,0.05); margin: 10px 0; }
+
+  /* Segmented bar */
+  .seg-track { display: flex; gap: 2px; height: 8px; border-radius: 4px; overflow: hidden; }
+  .seg { flex: 1; }
+
+  /* Ring */
+  .rings { display: flex; gap: 16px; flex-wrap: wrap; }
+  .ring-wrap { display: flex; flex-direction: column; align-items: center; gap: 5px; }
+  .ring-label { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: #394050; }
+  .ring-val { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 700; color: #EEF0F5; }
+</style>
+</head>
+<body>
+  <div class="section">
+    <div class="label">Progress Bars</div>
+    <div class="prog-row">
+      <div class="prog-header"><span class="prog-name">Portfolio Rebuild</span><span class="prog-val">68%</span></div>
+      <div class="track"><div class="fill fill-cobalt" style="width:68%"></div></div>
+    </div>
+    <div class="prog-row">
+      <div class="prog-header"><span class="prog-name">Conference Talk</span><span class="prog-val">35%</span></div>
+      <div class="track"><div class="fill fill-amber" style="width:35%"></div></div>
+    </div>
+    <div class="prog-row">
+      <div class="prog-header"><span class="prog-name">Fitness Goal</span><span class="prog-val">92%</span></div>
+      <div class="track thin"><div class="fill fill-green" style="width:92%"></div></div>
+    </div>
+    <div class="prog-row">
+      <div class="prog-header"><span class="prog-name">Budget Runway</span><span class="prog-val">47%</span></div>
+      <div class="track thick"><div class="fill fill-gradient" style="width:47%"></div></div>
+    </div>
+    <div class="prog-row">
+      <div class="prog-header"><span class="prog-name">Risk Exposure</span><span class="prog-val">81%</span></div>
+      <div class="track"><div class="fill fill-crimson" style="width:81%"></div></div>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="section">
+    <div class="label">Segmented / Multi-value</div>
+    <div style="margin-bottom:6px">
+      <div class="prog-header" style="margin-bottom:4px"><span class="prog-name">Capability Mix</span></div>
+      <div class="seg-track">
+        <div class="seg" style="background:#2563EB;flex:4"></div>
+        <div class="seg" style="background:#34D399;flex:3"></div>
+        <div class="seg" style="background:#FBBF24;flex:2"></div>
+        <div class="seg" style="background:#475569;flex:1"></div>
+      </div>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="section">
+    <div class="label">Progress Rings</div>
+    <div class="rings">
+      <div class="ring-wrap">
+        <svg width="48" height="48" viewBox="0 0 48 48">
+          <circle cx="24" cy="24" r="18" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="5"/>
+          <circle cx="24" cy="24" r="18" fill="none" stroke="#2563EB" stroke-width="5" stroke-dasharray="113.1" stroke-dashoffset="36" stroke-linecap="round" transform="rotate(-90 24 24)"/>
+          <text x="24" y="28" text-anchor="middle" font-family="'Space Grotesk'" font-size="11" font-weight="700" fill="#EEF0F5">68%</text>
+        </svg>
+        <div class="ring-label">Portfolio</div>
+      </div>
+      <div class="ring-wrap">
+        <svg width="48" height="48" viewBox="0 0 48 48">
+          <circle cx="24" cy="24" r="18" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="5"/>
+          <circle cx="24" cy="24" r="18" fill="none" stroke="#34D399" stroke-width="5" stroke-dasharray="113.1" stroke-dashoffset="10" stroke-linecap="round" transform="rotate(-90 24 24)"/>
+          <text x="24" y="28" text-anchor="middle" font-family="'Space Grotesk'" font-size="11" font-weight="700" fill="#EEF0F5">92%</text>
+        </svg>
+        <div class="ring-label">Fitness</div>
+      </div>
+      <div class="ring-wrap">
+        <svg width="48" height="48" viewBox="0 0 48 48">
+          <circle cx="24" cy="24" r="18" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="5"/>
+          <circle cx="24" cy="24" r="18" fill="none" stroke="#FBBF24" stroke-width="5" stroke-dasharray="113.1" stroke-dashoffset="74" stroke-linecap="round" transform="rotate(-90 24 24)"/>
+          <text x="24" y="28" text-anchor="middle" font-family="'Space Grotesk'" font-size="11" font-weight="700" fill="#EEF0F5">35%</text>
+        </svg>
+        <div class="ring-label">Talk</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

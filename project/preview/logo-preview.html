@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #080A0F; font-family: 'DM Sans', sans-serif; padding: 20px; }
+.top-label { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: #394050; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 18px; }
+.rule-bar { background: #0F1117; border: 1px solid rgba(255,255,255,0.07); border-radius: 8px; padding: 12px 16px; margin-bottom: 16px; display: flex; gap: 24px; align-items: center; }
+.rule-tag { font-family: 'JetBrains Mono', monospace; font-size: 9px; padding: 2px 8px; border-radius: 9999px; white-space: nowrap; }
+.rule-a { background: rgba(37,99,235,0.12); color: #60A5FA; border: 1px solid rgba(37,99,235,0.25); }
+.rule-d { background: rgba(148,163,184,0.08); color: #94A3B8; border: 1px solid rgba(148,163,184,0.15); }
+.rule-text { font-size: 11px; color: #556070; line-height: 1.5; }
+.section-title { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 600; color: #556070; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 12px; margin-top: 20px; border-bottom: 1px solid rgba(255,255,255,0.04); padding-bottom: 6px; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+.card { background: #111318; border: 1px solid rgba(255,255,255,0.07); border-radius: 10px; padding: 14px; }
+.card-tag { font-family: 'JetBrains Mono', monospace; font-size: 9px; margin-bottom: 8px; }
+.icon-row { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+.icon-col { display: flex; flex-direction: column; align-items: center; gap: 3px; }
+.sz { font-family: 'JetBrains Mono', monospace; font-size: 8px; color: #394050; }
+.lockup { display: flex; align-items: center; gap: 8px; padding: 6px 10px; background: rgba(255,255,255,0.03); border-radius: 5px; margin-bottom: 5px; }
+.lockup-name { font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 700; color: #EEF0F5; letter-spacing: -0.025em; }
+.on-light { background: #F1F5F9; border-radius: 5px; padding: 6px 10px; display: flex; align-items: center; gap: 8px; }
+.divider { height: 1px; background: rgba(255,255,255,0.04); margin: 16px 0; }
+.cloud-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.pair-wrap { background: #111318; border: 1px solid rgba(255,255,255,0.07); border-radius: 10px; padding: 14px; }
+.context-label { font-family: 'JetBrains Mono', monospace; font-size: 8px; color: #394050; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.08em; }
+</style>
+</head>
+<body>
+
+<div class="top-label">Quincy OS + Cloud129 — Final Logo System</div>
+
+<!-- USAGE RULES -->
+<div class="rule-bar">
+  <span class="rule-tag rule-a">A — Ring Tile</span>
+  <span class="rule-text">Nav bars · Favicons · Sidebars · UI elements · Any context under 32px · App icons</span>
+</div>
+<div class="rule-bar">
+  <span class="rule-tag rule-d">D — Open</span>
+  <span class="rule-text">Hero sections · Landing pages · Editorial headers · Presentations · Large-format · Paired with display type</span>
+</div>
+
+<!-- Q MARK -->
+<div class="section-title">Q Mark — Dual Use</div>
+<div class="grid-2">
+  <!-- A: Ring Tile -->
+  <div class="card">
+    <div class="card-tag rule-tag rule-a">A / Ring — UI contexts</div>
+    <div class="icon-row">
+      <div class="icon-col">
+        <svg width="48" height="48" viewBox="0 0 64 64" fill="none"><rect width="64" height="64" rx="14" fill="#2563EB"/><rect x="0.75" y="0.75" width="62.5" height="62.5" rx="13.25" stroke="rgba(255,255,255,0.12)" stroke-width="1.5" fill="none"/><path d="M 38 43 A 16 16 0 1 1 44 37 L 52 43" stroke="white" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        <div class="sz">48</div>
+      </div>
+      <div class="icon-col">
+        <svg width="32" height="32" viewBox="0 0 64 64" fill="none"><rect width="64" height="64" rx="14" fill="#2563EB"/><path d="M 38 43 A 16 16 0 1 1 44 37 L 52 43" stroke="white" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        <div class="sz">32</div>
+      </div>
+      <div class="icon-col">
+        <svg width="20" height="20" viewBox="0 0 64 64" fill="none"><rect width="64" height="64" rx="14" fill="#2563EB"/><path d="M 38 43 A 16 16 0 1 1 44 37 L 52 43" stroke="white" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        <div class="sz">20</div>
+      </div>
+    </div>
+    <div class="lockup">
+      <svg width="22" height="22" viewBox="0 0 64 64" fill="none"><rect width="64" height="64" rx="14" fill="#2563EB"/><path d="M 38 43 A 16 16 0 1 1 44 37 L 52 43" stroke="white" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+      <div class="lockup-name" style="font-size:13px">Quincy OS</div>
+    </div>
+    <div class="on-light">
+      <svg width="20" height="20" viewBox="0 0 64 64" fill="none"><rect width="64" height="64" rx="14" fill="#2563EB"/><path d="M 38 43 A 16 16 0 1 1 44 37 L 52 43" stroke="white" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+      <span style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;color:#0D0F14;letter-spacing:-0.02em">Quincy OS</span>
+    </div>
+  </div>
+
+  <!-- D: Open -->
+  <div class="card">
+    <div class="card-tag rule-tag rule-d">D / Open — Editorial contexts</div>
+    <div class="icon-row">
+      <div class="icon-col">
+        <svg width="48" height="48" viewBox="0 0 64 64" fill="none"><path d="M 38 43 A 16 16 0 1 1 44 37 L 52 43" stroke="#2563EB" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        <div class="sz">cobalt</div>
+      </div>
+      <div class="icon-col">
+        <svg width="48" height="48" viewBox="0 0 64 64" fill="none"><path d="M 38 43 A 16 16 0 1 1 44 37 L 52 43" stroke="white" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        <div class="sz">white</div>
+      </div>
+      <div class="icon-col">
+        <svg width="28" height="28" viewBox="0 0 64 64" fill="none"><path d="M 38 43 A 16 16 0 1 1 44 37 L 52 43" stroke="#2563EB" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        <div class="sz">28</div>
+      </div>
+    </div>
+    <div class="lockup" style="background:transparent;padding:6px 0">
+      <svg width="28" height="28" viewBox="0 0 64 64" fill="none"><path d="M 38 43 A 16 16 0 1 1 44 37 L 52 43" stroke="#2563EB" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+      <div class="lockup-name">Quincy OS</div>
+    </div>
+    <div class="on-light">
+      <svg width="28" height="28" viewBox="0 0 64 64" fill="none"><path d="M 38 43 A 16 16 0 1 1 44 37 L 52 43" stroke="#1D4ED8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+      <span style="font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;color:#0D0F14;letter-spacing:-0.025em">Quincy OS</span>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- CLOUD129 -->
+<div class="section-title">Cloud129 — C·129 Stacked (locked)</div>
+<div class="cloud-grid">
+  <div class="card">
+    <div class="card-tag" style="font-family:'JetBrains Mono',monospace;font-size:9px;color:#60A5FA;background:rgba(37,99,235,0.12);padding:2px 8px;border-radius:9999px;border:1px solid rgba(37,99,235,0.25);display:inline-block;margin-bottom:8px">★ Final mark</div>
+    <div class="icon-row">
+      <div class="icon-col">
+        <svg width="48" height="48" viewBox="0 0 64 64" fill="none">
+          <rect width="64" height="64" rx="14" fill="#2563EB"/>
+          <rect x="0.75" y="0.75" width="62.5" height="62.5" rx="13.25" stroke="rgba(255,255,255,0.12)" stroke-width="1.5" fill="none"/>
+          <path d="M 40 14 A 13 13 0 1 0 40 37" stroke="white" stroke-width="6.5" stroke-linecap="round" fill="none"/>
+          <line x1="12" y1="42" x2="52" y2="42" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+          <text x="32" y="56" font-family="'Courier New',monospace" font-size="12" font-weight="700" fill="white" text-anchor="middle" letter-spacing="1.5">129</text>
+        </svg>
+        <div class="sz">48</div>
+      </div>
+      <div class="icon-col">
+        <svg width="32" height="32" viewBox="0 0 64 64" fill="none">
+          <rect width="64" height="64" rx="14" fill="#2563EB"/>
+          <path d="M 40 14 A 13 13 0 1 0 40 37" stroke="white" stroke-width="7" stroke-linecap="round" fill="none"/>
+          <line x1="12" y1="42" x2="52" y2="42" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+          <text x="32" y="56" font-family="monospace" font-size="12" font-weight="700" fill="white" text-anchor="middle">129</text>
+        </svg>
+        <div class="sz">32</div>
+      </div>
+      <div class="icon-col">
+        <svg width="20" height="20" viewBox="0 0 64 64" fill="none">
+          <rect width="64" height="64" rx="14" fill="#2563EB"/>
+          <path d="M 40 14 A 13 13 0 1 0 40 37" stroke="white" stroke-width="7" stroke-linecap="round" fill="none"/>
+        </svg>
+        <div class="sz">20</div>
+      </div>
+    </div>
+    <div class="lockup">
+      <svg width="24" height="24" viewBox="0 0 64 64" fill="none"><rect width="64" height="64" rx="14" fill="#2563EB"/><path d="M 40 14 A 13 13 0 1 0 40 37" stroke="white" stroke-width="6.5" stroke-linecap="round" fill="none"/><line x1="12" y1="42" x2="52" y2="42" stroke="rgba(255,255,255,0.2)" stroke-width="1"/><text x="32" y="56" font-family="monospace" font-size="12" font-weight="700" fill="white" text-anchor="middle">129</text></svg>
+      <div class="lockup-name" style="font-size:13px">Cloud129</div>
+    </div>
+    <div class="on-light">
+      <svg width="20" height="20" viewBox="0 0 64 64" fill="none"><rect width="64" height="64" rx="14" fill="#2563EB"/><path d="M 40 14 A 13 13 0 1 0 40 37" stroke="white" stroke-width="6.5" stroke-linecap="round" fill="none"/></svg>
+      <span style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;color:#0D0F14;letter-spacing:-0.02em">Cloud129</span>
+    </div>
+  </div>
+
+  <!-- SYSTEM PAIR -->
+  <div class="pair-wrap">
+    <div class="context-label">Full system — in context</div>
+    <!-- Hero context -->
+    <div style="background:#040508;border-radius:8px;padding:16px;margin-bottom:8px">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:8px;color:#394050;margin-bottom:10px">Hero / Editorial (Option D)</div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <svg width="36" height="36" viewBox="0 0 64 64" fill="none"><path d="M 38 43 A 16 16 0 1 1 44 37 L 52 43" stroke="#2563EB" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        <div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;color:#EEF0F5;letter-spacing:-0.04em;line-height:1">Quincy OS</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:#394050;margin-top:2px">v1.0 · Cloud129 Technologies</div>
+        </div>
+      </div>
+    </div>
+    <!-- Nav context -->
+    <div style="background:#0F1117;border:1px solid rgba(255,255,255,0.06);border-radius:6px;padding:8px 12px;display:flex;align-items:center;gap:8px;margin-bottom:8px">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:8px;color:#394050;width:60px;flex-shrink:0">Nav (A)</div>
+      <svg width="20" height="20" viewBox="0 0 64 64" fill="none"><rect width="64" height="64" rx="14" fill="#2563EB"/><path d="M 38 43 A 16 16 0 1 1 44 37 L 52 43" stroke="white" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+      <span style="font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;color:#EEF0F5;letter-spacing:-0.02em">Quincy Iheme</span>
+    </div>
+    <!-- Cloud129 companion -->
+    <div style="display:flex;align-items:center;gap:8px">
+      <svg width="20" height="20" viewBox="0 0 64 64" fill="none"><rect width="64" height="64" rx="14" fill="#1D4ED8"/><path d="M 40 14 A 13 13 0 1 0 40 37" stroke="white" stroke-width="7" stroke-linecap="round" fill="none"/><line x1="12" y1="42" x2="52" y2="42" stroke="rgba(255,255,255,0.2)" stroke-width="1"/><text x="32" y="56" font-family="monospace" font-size="12" font-weight="700" fill="white" text-anchor="middle">129</text></svg>
+      <span style="font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:600;color:#8B95A8;letter-spacing:-0.01em">Cloud129 Technologies</span>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
