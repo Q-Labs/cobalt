@@ -28,3 +28,34 @@ jobs:
 
       - name: Build
         run: npm run build
+
+  storybook-build:
+    name: Storybook Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - run: npm ci
+
+      - name: Build Storybook
+        run: npm run build-storybook
+
+      - name: Verify asset integrity
+        run: |
+          node -e "
+          const fs = require('fs');
+          const html = fs.readFileSync('storybook-static/iframe.html', 'utf8');
+          const assets = [...html.matchAll(/(?:href|src)=\"([^\"]+\.(css|js))\"/g)].map(m => m[1]);
+          let failed = false;
+          for (const a of assets) {
+            const p = 'storybook-static' + a;
+            if (!fs.existsSync(p)) { console.error('Missing asset:', p); failed = true; }
+          }
+          if (failed) process.exit(1);
+          console.log('All', assets.length, 'assets verified.');
+          "
