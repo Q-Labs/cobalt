@@ -229,7 +229,6 @@
     },
     "./tokens": "./dist/esm/tokens/index.css",
     "./styles.css": "./dist/cobalt.css",
-    "./dist/cobalt.css": "./dist/cobalt.css",
     "./package.json": "./package.json"
   },
   "files": [
