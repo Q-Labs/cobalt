@@ -1,0 +1,14 @@
+.tag {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--cobalt-font-mono);
+  font-size: var(--cobalt-text-2xs);
+  font-weight: var(--cobalt-weight-regular);
+  color: var(--text-tertiary);
+  background: var(--bg-raised);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--cobalt-radius-sm);
+  padding: 2px var(--cobalt-space-2);
+  white-space: nowrap;
+  letter-spacing: var(--cobalt-tracking-wide);
+}

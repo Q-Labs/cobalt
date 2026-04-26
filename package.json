@@ -1,0 +1,67 @@
+{
+  "name": "@qiheme/cobalt",
+  "version": "0.1.0",
+  "description": "Cobalt — React component library for the Quincy OS design system by Cloud129 Technologies",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./tokens": "./dist/tokens/index.css",
+    "./dist/cobalt.css": "./dist/cobalt.css"
+  },
+  "files": ["dist"],
+  "sideEffects": ["**/*.css"],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "scripts": {
+    "build": "vite build",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build -o storybook-static"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "devDependencies": {
+    "@storybook/addon-docs": "^8.6.12",
+    "@storybook/addon-interactions": "^8.6.12",
+    "@storybook/react": "^8.6.12",
+    "@storybook/react-vite": "^8.6.12",
+    "@storybook/test": "^8.6.12",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.5.2",
+    "@types/react": "^18.3.20",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^4.4.1",
+    "@vitest/coverage-v8": "^3.1.3",
+    "jsdom": "^26.1.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "storybook": "^8.6.12",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.3",
+    "vite-plugin-dts": "^4.5.3",
+    "vitest": "^3.1.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/qiheme/design-system.git"
+  },
+  "homepage": "https://qiheme.github.io/design-system",
+  "bugs": {
+    "url": "https://github.com/qiheme/design-system/issues"
+  },
+  "keywords": ["design-system", "react", "cobalt", "cloud129", "component-library"],
+  "license": "MIT"
+}

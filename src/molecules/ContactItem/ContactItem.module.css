@@ -1,0 +1,32 @@
+.contact {
+  display: flex;
+  align-items: center;
+  gap: var(--cobalt-space-3);
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  border-radius: var(--cobalt-radius-sm);
+  background: var(--bg-raised);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--cobalt-font-mono);
+  font-size: var(--cobalt-text-2xs);
+  font-weight: var(--cobalt-weight-semibold);
+  color: var(--text-tertiary);
+  flex-shrink: 0;
+}
+
+.value {
+  font-family: var(--cobalt-font-mono);
+  font-size: var(--cobalt-text-xs);
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+
+a.value:hover {
+  color: var(--text-accent);
+}

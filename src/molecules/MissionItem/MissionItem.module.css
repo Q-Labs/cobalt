@@ -1,0 +1,39 @@
+.mission {
+  display: flex;
+  align-items: center;
+  gap: var(--cobalt-space-3);
+  padding: var(--cobalt-space-2) 0;
+}
+
+.status {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--cobalt-radius-full);
+  flex-shrink: 0;
+}
+
+.status--active  { background: var(--status-active); }
+.status--warning { background: var(--status-warning); }
+.status--danger  { background: var(--status-danger); }
+.status--info    { background: var(--status-info); }
+
+.name {
+  flex: 1;
+  font-size: var(--cobalt-text-sm);
+  color: var(--text-primary);
+  font-weight: var(--cobalt-weight-medium);
+}
+
+.progress-wrap {
+  display: flex;
+  align-items: center;
+  gap: var(--cobalt-space-2);
+}
+
+.pct {
+  font-family: var(--cobalt-font-mono);
+  font-size: var(--cobalt-text-xs);
+  color: var(--text-tertiary);
+  width: 32px;
+  text-align: right;
+}

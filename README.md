@@ -1,25 +1,114 @@
-# CODING AGENTS: READ THIS FIRST
+# Cobalt
 
-This is a **handoff bundle** from Claude Design (claude.ai/design).
+> React component library for the Quincy OS design system by Cloud129 Technologies.
 
-A user mocked up designs in HTML/CSS/JS using an AI design tool, then exported this bundle so a coding agent can implement the designs for real.
+[![CI](https://github.com/qiheme/design-system/actions/workflows/ci.yml/badge.svg)](https://github.com/qiheme/design-system/actions/workflows/ci.yml)
+[![Storybook](https://img.shields.io/badge/Storybook-live-FF4785?logo=storybook&logoColor=white)](https://qiheme.github.io/design-system)
+[![npm](https://img.shields.io/badge/npm-%40qiheme%2Fcobalt-blue)](https://github.com/qiheme/design-system/packages)
 
-## What you should do — IMPORTANT
+Dark-first. Cobalt and crimson. Space Grotesk / DM Sans / JetBrains Mono.
 
-**Read the chat transcripts first.** There are 1 chat transcript(s) in `chats/`. The transcripts show the full back-and-forth between the user and the design assistant — they tell you **what the user actually wants** and **where they landed** after iterating. Don't skip them. The final HTML files are the output, but the chat is where the intent lives.
+---
 
-**Find the primary design file under `project/` and read it top to bottom.** The chat transcripts will tell you which file the user was last iterating on. Then **follow its imports**: open every file it pulls in (shared components, CSS, scripts) so you understand how the pieces fit together before you start implementing.
+## Install
 
-**If anything is ambiguous, ask the user to confirm before you start implementing.** It's much cheaper to clarify scope up front than to build the wrong thing.
+Add to `.npmrc` in your project:
 
-## About the design files
+```
+@qiheme:registry=https://npm.pkg.github.com
+```
 
-The design medium is **HTML/CSS/JS** — these are prototypes, not production code. Your job is to **recreate them pixel-perfectly** in whatever technology makes sense for the target codebase (React, Vue, native, whatever fits). Match the visual output; don't copy the prototype's internal structure unless it happens to fit.
+Then install:
 
-**Don't render these files in a browser or take screenshots unless the user asks you to.** Everything you need — dimensions, colors, layout rules — is spelled out in the source. Read the HTML and CSS directly; a screenshot won't tell you anything they don't.
+```bash
+npm install @qiheme/cobalt
+```
 
-## Bundle contents
+## Usage
 
-- `README.md` — this file
-- `chats/` — conversation transcripts (read these!)
-- `project/` — the `Quincy OS Design System` project files (HTML prototypes, assets, components)
+```tsx
+import { CobaltProvider, Button, Badge } from '@qiheme/cobalt'
+import '@qiheme/cobalt/dist/cobalt.css'
+
+export default function App() {
+  return (
+    <CobaltProvider>
+      <Button variant="primary">Launch</Button>
+      <Badge variant="active">Active</Badge>
+    </CobaltProvider>
+  )
+}
+```
+
+---
+
+## Components
+
+<!-- STATS:START -->
+| Level | Count |
+|---|---|
+| Typography | 5 |
+| Atoms | 11 |
+| Molecules | 13 |
+| Organisms | 10 |
+| Templates | 4 |
+| **Total** | **43** |
+
+Coverage: **100%** · Version: **0.1.0**
+<!-- STATS:END -->
+
+### Typography
+`Display` `Heading` `Body` `Label` `Mono`
+
+### Atoms
+`Button` `Badge` `Tag` `Avatar` `Input` `ProgressBar` `ProgressMini` `StatusDot` `Divider` `NavBadge` `LogoMark`
+
+### Molecules
+`NavItem` `MetricCard` `StatItem` `SignalItem` `TimelineItem` `MissionItem` `UserBlock` `ContactItem` `QuickStatRow` `SkillRow` `ExperienceRole` `EducationEntry`
+
+### Organisms
+`Card` `TopNav` `Topbar` `Hero` `ProjectCard` `FeatureCard` `Sidebar` `StatsRow` `ExperienceBlock` `StatusBar`
+
+### Templates
+`DashboardLayout` `PortfolioLayout` `ResumeLayout` `LandingLayout`
+
+---
+
+## Development
+
+```bash
+npm run storybook        # Component explorer on :6006
+npm run test:coverage    # Run tests with 100% coverage enforcement
+npm run typecheck        # TypeScript type check
+npm run build            # Library build → dist/
+npm run build-storybook  # Static Storybook → storybook-static/
+```
+
+## Publishing
+
+Tag a release to trigger automatic publish to GitHub Packages:
+
+```bash
+npm version patch   # or minor / major
+git push --tags
+```
+
+The `release.yml` workflow publishes `@qiheme/cobalt` to GitHub Packages automatically.
+
+---
+
+## Design Tokens
+
+Import tokens directly for custom integrations:
+
+```css
+@import '@qiheme/cobalt/tokens';
+```
+
+Token categories: color primitives (`--cobalt-*`, `--crimson-*`), semantic colors (`--bg-base`, `--text-primary`, `--accent-default`), typography scale, spacing, border radius.
+
+---
+
+## License
+
+MIT © Cloud129 Technologies

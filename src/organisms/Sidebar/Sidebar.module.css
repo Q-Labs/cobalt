@@ -1,0 +1,32 @@
+.sidebar {
+  width: 220px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-surface);
+  border-right: 1px solid var(--border-subtle);
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  overflow-y: auto;
+}
+
+.logo-wrap {
+  padding: var(--cobalt-space-4) var(--cobalt-space-4) var(--cobalt-space-2);
+  border-bottom: 1px solid var(--border-subtle);
+  flex-shrink: 0;
+}
+
+.nav {
+  flex: 1;
+  padding: var(--cobalt-space-3) var(--cobalt-space-2);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  overflow-y: auto;
+}
+
+.footer-wrap {
+  border-top: 1px solid var(--border-subtle);
+  flex-shrink: 0;
+}

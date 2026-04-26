@@ -1,0 +1,54 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--cobalt-space-1);
+  font-family: var(--cobalt-font-body);
+  font-size: var(--cobalt-text-xs);
+  font-weight: var(--cobalt-weight-medium);
+  padding: 2px var(--cobalt-space-2);
+  border-radius: var(--cobalt-radius-full);
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.badge--default {
+  background: var(--bg-raised);
+  color: var(--text-secondary);
+  border-color: var(--border-default);
+}
+
+.badge--active {
+  background: rgba(52, 211, 153, 0.12);
+  color: var(--status-active);
+  border-color: rgba(52, 211, 153, 0.25);
+}
+
+.badge--warning {
+  background: rgba(251, 191, 36, 0.12);
+  color: var(--status-warning);
+  border-color: rgba(251, 191, 36, 0.25);
+}
+
+.badge--danger {
+  background: var(--danger-subtle);
+  color: var(--status-danger);
+  border-color: rgba(239, 34, 34, 0.25);
+}
+
+.badge--info {
+  background: var(--accent-subtle);
+  color: var(--status-info);
+  border-color: rgba(37, 99, 235, 0.25);
+}
+
+.badge--shipped {
+  background: rgba(52, 211, 153, 0.08);
+  color: var(--status-active);
+  border-color: rgba(52, 211, 153, 0.2);
+}
+
+.badge--wip {
+  background: rgba(251, 191, 36, 0.08);
+  color: var(--status-warning);
+  border-color: rgba(251, 191, 36, 0.2);
+}

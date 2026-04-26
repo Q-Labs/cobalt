@@ -1,0 +1,16 @@
+.divider--horizontal {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: var(--border-default);
+  border: none;
+  margin: 0;
+}
+
+.divider--vertical {
+  display: inline-block;
+  width: 1px;
+  height: 100%;
+  background: var(--border-default);
+  align-self: stretch;
+}

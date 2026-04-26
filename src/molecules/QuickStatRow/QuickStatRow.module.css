@@ -1,0 +1,18 @@
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--cobalt-space-2) 0;
+}
+
+.label {
+  font-family: var(--cobalt-font-body);
+  font-size: var(--cobalt-text-xs);
+  color: var(--text-tertiary);
+}
+
+.value {
+  font-family: var(--cobalt-font-mono);
+  font-size: var(--cobalt-text-xs);
+  color: var(--text-primary);
+}

@@ -1,0 +1,47 @@
+.signal {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--cobalt-space-3);
+  padding: var(--cobalt-space-3) 0;
+}
+
+.icon-wrap {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--cobalt-radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.signal--active .icon-wrap  { background: rgba(52, 211, 153, 0.12); color: var(--status-active); }
+.signal--warning .icon-wrap { background: rgba(251, 191, 36, 0.12); color: var(--status-warning); }
+.signal--danger .icon-wrap  { background: var(--danger-subtle); color: var(--status-danger); }
+.signal--info .icon-wrap    { background: var(--accent-subtle); color: var(--status-info); }
+
+.content {
+  flex: 1;
+  min-width: 0;
+}
+
+.title {
+  font-family: var(--cobalt-font-body);
+  font-size: var(--cobalt-text-sm);
+  font-weight: var(--cobalt-weight-medium);
+  color: var(--text-primary);
+  margin-bottom: var(--cobalt-space-1);
+}
+
+.body {
+  font-family: var(--cobalt-font-body);
+  font-size: var(--cobalt-text-xs);
+  color: var(--text-secondary);
+  margin-bottom: var(--cobalt-space-1);
+}
+
+.timestamp {
+  font-family: var(--cobalt-font-mono);
+  font-size: var(--cobalt-text-2xs);
+  color: var(--text-tertiary);
+}

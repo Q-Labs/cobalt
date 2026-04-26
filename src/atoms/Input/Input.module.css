@@ -1,0 +1,28 @@
+.input {
+  display: block;
+  width: 100%;
+  font-family: var(--cobalt-font-body);
+  font-size: var(--cobalt-text-sm);
+  color: var(--text-primary);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--cobalt-radius-md);
+  padding: var(--cobalt-space-2) var(--cobalt-space-4);
+  height: 40px;
+  outline: none;
+  transition: border-color 120ms ease, box-shadow 120ms ease;
+}
+
+.input::placeholder {
+  color: var(--text-disabled);
+}
+
+.input:focus {
+  border-color: var(--accent-default);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+.input:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}

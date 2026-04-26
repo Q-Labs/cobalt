@@ -1,0 +1,10 @@
+.layout {
+  min-height: 100vh;
+  background: var(--bg-base);
+}
+
+.sections > * {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: var(--cobalt-space-16) var(--cobalt-space-8);
+}

@@ -1,0 +1,23 @@
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-base);
+}
+
+.body {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: var(--cobalt-space-12);
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: var(--cobalt-space-10) var(--cobalt-space-8);
+  width: 100%;
+}
+
+.sidebar {
+  position: sticky;
+  top: var(--cobalt-space-10);
+  align-self: start;
+}

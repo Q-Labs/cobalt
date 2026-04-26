@@ -1,0 +1,37 @@
+.user-block {
+  display: flex;
+  align-items: center;
+  gap: var(--cobalt-space-3);
+  padding: var(--cobalt-space-3);
+}
+
+.info {
+  flex: 1;
+  min-width: 0;
+}
+
+.name {
+  font-size: var(--cobalt-text-sm);
+  font-weight: var(--cobalt-weight-medium);
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: var(--cobalt-space-1);
+  font-family: var(--cobalt-font-mono);
+  font-size: var(--cobalt-text-2xs);
+  color: var(--text-tertiary);
+  margin-top: 2px;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--cobalt-radius-full);
+  background: var(--status-active);
+}

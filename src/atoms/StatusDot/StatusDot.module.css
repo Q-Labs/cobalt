@@ -1,0 +1,22 @@
+.status-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: var(--cobalt-radius-full);
+  flex-shrink: 0;
+}
+
+.status-dot--active  { background: var(--status-active); }
+.status-dot--warning { background: var(--status-warning); }
+.status-dot--danger  { background: var(--status-danger); }
+.status-dot--info    { background: var(--status-info); }
+.status-dot--offline { background: var(--status-offline); }
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.6; transform: scale(0.85); }
+}
+
+.status-dot--animated {
+  animation: pulse 2s ease-in-out infinite;
+}

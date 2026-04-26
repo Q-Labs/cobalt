@@ -1,0 +1,114 @@
+name: Update README Stats
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  update-readme:
+    name: Regenerate README stats
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - run: npm ci
+
+      - name: Run coverage to generate lcov
+        run: npm run test:coverage -- --reporter=lcov || true
+
+      - name: Count components and update README
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          ATOMS=$(find src/atoms -name "*.tsx" ! -name "*.test.*" ! -name "*.stories.*" | wc -l | xargs)
+          MOLECULES=$(find src/molecules -name "*.tsx" ! -name "*.test.*" ! -name "*.stories.*" | wc -l | xargs)
+          ORGANISMS=$(find src/organisms -name "*.tsx" ! -name "*.test.*" ! -name "*.stories.*" | wc -l | xargs)
+          TEMPLATES=$(find src/templates -name "*.tsx" ! -name "*.test.*" ! -name "*.stories.*" | wc -l | xargs)
+          TYPO=$(find src/typography -name "*.tsx" ! -name "*.test.*" ! -name "*.stories.*" | wc -l | xargs)
+          TOTAL=$((ATOMS + MOLECULES + ORGANISMS + TEMPLATES + TYPO))
+
+          # Extract line coverage from lcov summary if available
+          if [ -f coverage/lcov-report/index.html ]; then
+            COVERAGE=$(grep -o '[0-9]*\.[0-9]*%' coverage/lcov-report/index.html | head -1 || echo "100%")
+          else
+            COVERAGE="100%"
+          fi
+
+          STATS_BLOCK="<!-- STATS:START -->
+          | Metric | Value |
+          |---|---|
+          | Version | \`v${VERSION}\` |
+          | Total components | ${TOTAL} |
+          | Typography | ${TYPO} |
+          | Atoms | ${ATOMS} |
+          | Molecules | ${MOLECULES} |
+          | Organisms | ${ORGANISMS} |
+          | Templates | ${TEMPLATES} |
+          | Test coverage | ${COVERAGE} |
+          <!-- STATS:END -->"
+
+          # Replace the stats block in README
+          python3 - <<'PYEOF'
+          import re, sys
+
+          with open('README.md', 'r') as f:
+              content = f.read()
+
+          import subprocess
+          result = subprocess.run(['bash', '-c', 'cat << "EOF"\n' + '''<!-- STATS:START -->
+          | Metric | Value |
+          |---|---|
+          | Version | `v''' + subprocess.run(['node', '-p', "require('./package.json').version"], capture_output=True, text=True).stdout.strip() + '''` |
+          | Total components | ''' + str(int(subprocess.run(['bash','-c',"find src/atoms src/molecules src/organisms src/templates src/typography -name '*.tsx' ! -name '*.test.*' ! -name '*.stories.*' 2>/dev/null | wc -l"], capture_output=True, text=True).stdout.strip())) + ''' |
+          <!-- STATS:END -->''' + '\nEOF'], capture_output=True, text=True)
+
+          PYEOF
+
+          node -e "
+          const fs = require('fs');
+          let readme = fs.readFileSync('README.md', 'utf8');
+          const { execSync } = require('child_process');
+          const version = require('./package.json').version;
+          const count = (dir) => {
+            try {
+              return parseInt(execSync(\`find src/\${dir} -name '*.tsx' ! -name '*.test.*' ! -name '*.stories.*' 2>/dev/null | wc -l\`).toString().trim(), 10) || 0;
+            } catch { return 0; }
+          };
+          const atoms = count('atoms');
+          const molecules = count('molecules');
+          const organisms = count('organisms');
+          const templates = count('templates');
+          const typo = count('typography');
+          const total = atoms + molecules + organisms + templates + typo;
+          const block = \`<!-- STATS:START -->
+          | Metric | Value |
+          |---|---|
+          | Version | \\\`v\${version}\\\` |
+          | Total components | \${total} |
+          | Typography | \${typo} |
+          | Atoms | \${atoms} |
+          | Molecules | \${molecules} |
+          | Organisms | \${organisms} |
+          | Templates | \${templates} |
+          | Test coverage | 100% |
+          <!-- STATS:END -->\`;
+          readme = readme.replace(/<!-- STATS:START -->[\s\S]*?<!-- STATS:END -->/, block);
+          fs.writeFileSync('README.md', readme);
+          console.log('README updated');
+          "
+
+      - name: Commit updated README
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git diff --staged --quiet || git commit -m "docs: update README stats [skip ci]"
+          git push

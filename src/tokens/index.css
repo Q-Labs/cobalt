@@ -1,0 +1,239 @@
+/*
+ * Cobalt Design System — tokens/index.css
+ * Version 0.1.0
+ *
+ * Fonts: Space Grotesk (display) · DM Sans (body) · JetBrains Mono (mono)
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+/* ─── PRIMITIVE TOKENS ─────────────────────────────────────────────────────── */
+
+:root {
+  /* Charcoal / Near-Black */
+  --cobalt-black-50:  #F4F5F7;
+  --cobalt-black-100: #E5E7EC;
+  --cobalt-black-200: #C9CDD8;
+  --cobalt-black-300: #9AA0B0;
+  --cobalt-black-400: #6B7283;
+  --cobalt-black-500: #434959;
+  --cobalt-black-600: #282D3A;
+  --cobalt-black-700: #1A1E28;
+  --cobalt-black-800: #111318;
+  --cobalt-black-900: #080A0F;
+  --cobalt-black-950: #040508;
+
+  /* Cobalt / Navy / Blue */
+  --cobalt-blue-50:  #EBF2FF;
+  --cobalt-blue-100: #BFDBFF;
+  --cobalt-blue-200: #93C1FF;
+  --cobalt-blue-300: #60A5FA;
+  --cobalt-blue-400: #3B82F6;
+  --cobalt-blue-500: #2563EB;
+  --cobalt-blue-600: #1D4ED8;
+  --cobalt-blue-700: #1E3A8A;
+  --cobalt-blue-800: #172756;
+  --cobalt-blue-900: #0F1A3D;
+  --cobalt-blue-950: #080E24;
+
+  /* Crimson / Red */
+  --cobalt-crimson-50:  #FFF1F1;
+  --cobalt-crimson-100: #FFD9D9;
+  --cobalt-crimson-200: #FFAAAA;
+  --cobalt-crimson-300: #FF7070;
+  --cobalt-crimson-400: #F84B4B;
+  --cobalt-crimson-500: #EF2222;
+  --cobalt-crimson-600: #C41313;
+  --cobalt-crimson-700: #9A0E0E;
+  --cobalt-crimson-800: #6B0B0B;
+  --cobalt-crimson-900: #3D0606;
+
+  /* Silver / Metallic Neutrals */
+  --cobalt-silver-50:  #F8FAFC;
+  --cobalt-silver-100: #F1F5F9;
+  --cobalt-silver-200: #E2E8F0;
+  --cobalt-silver-300: #CBD5E1;
+  --cobalt-silver-400: #94A3B8;
+  --cobalt-silver-500: #64748B;
+  --cobalt-silver-600: #475569;
+  --cobalt-silver-700: #334155;
+  --cobalt-silver-800: #1E293B;
+  --cobalt-silver-900: #0F172A;
+
+  /* Off-white / Cream */
+  --cobalt-white:     #FFFFFF;
+  --cobalt-off-white: #F7F8FA;
+  --cobalt-cream:     #F0F2F5;
+
+  /* Font families */
+  --cobalt-font-display: 'Space Grotesk', 'Helvetica Neue', sans-serif;
+  --cobalt-font-body:    'DM Sans', 'Helvetica Neue', sans-serif;
+  --cobalt-font-mono:    'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Font sizes */
+  --cobalt-text-2xs:  0.625rem;
+  --cobalt-text-xs:   0.75rem;
+  --cobalt-text-sm:   0.875rem;
+  --cobalt-text-base: 1rem;
+  --cobalt-text-lg:   1.125rem;
+  --cobalt-text-xl:   1.25rem;
+  --cobalt-text-2xl:  1.5rem;
+  --cobalt-text-3xl:  1.875rem;
+  --cobalt-text-4xl:  2.25rem;
+  --cobalt-text-5xl:  3rem;
+  --cobalt-text-6xl:  3.75rem;
+  --cobalt-text-7xl:  4.5rem;
+  --cobalt-text-8xl:  6rem;
+
+  /* Font weights */
+  --cobalt-weight-light:    300;
+  --cobalt-weight-regular:  400;
+  --cobalt-weight-medium:   500;
+  --cobalt-weight-semibold: 600;
+  --cobalt-weight-bold:     700;
+
+  /* Line heights */
+  --cobalt-leading-tight:   1.15;
+  --cobalt-leading-snug:    1.3;
+  --cobalt-leading-normal:  1.5;
+  --cobalt-leading-relaxed: 1.65;
+  --cobalt-leading-loose:   1.8;
+
+  /* Letter spacing */
+  --cobalt-tracking-tighter: -0.04em;
+  --cobalt-tracking-tight:   -0.02em;
+  --cobalt-tracking-normal:   0em;
+  --cobalt-tracking-wide:     0.04em;
+  --cobalt-tracking-wider:    0.08em;
+  --cobalt-tracking-widest:   0.14em;
+
+  /* Spacing */
+  --cobalt-space-1:  0.25rem;
+  --cobalt-space-2:  0.5rem;
+  --cobalt-space-3:  0.75rem;
+  --cobalt-space-4:  1rem;
+  --cobalt-space-5:  1.25rem;
+  --cobalt-space-6:  1.5rem;
+  --cobalt-space-8:  2rem;
+  --cobalt-space-10: 2.5rem;
+  --cobalt-space-12: 3rem;
+  --cobalt-space-16: 4rem;
+  --cobalt-space-20: 5rem;
+  --cobalt-space-24: 6rem;
+  --cobalt-space-32: 8rem;
+
+  /* Border radius */
+  --cobalt-radius-none: 0;
+  --cobalt-radius-xs:   2px;
+  --cobalt-radius-sm:   4px;
+  --cobalt-radius-md:   6px;
+  --cobalt-radius-lg:   10px;
+  --cobalt-radius-xl:   16px;
+  --cobalt-radius-2xl:  24px;
+  --cobalt-radius-full: 9999px;
+}
+
+/* ─── DARK MODE (default) ───────────────────────────────────────────────────── */
+
+:root,
+[data-theme="dark"] {
+  --bg-base:    var(--cobalt-black-950);
+  --bg-surface: var(--cobalt-black-900);
+  --bg-raised:  var(--cobalt-black-800);
+  --bg-overlay: var(--cobalt-black-700);
+  --bg-sunken:  #030406;
+
+  --border-subtle:  rgba(255, 255, 255, 0.05);
+  --border-default: rgba(255, 255, 255, 0.09);
+  --border-strong:  rgba(255, 255, 255, 0.15);
+  --border-accent:  var(--cobalt-blue-500);
+
+  --text-primary:   #EEF0F5;
+  --text-secondary: #8B95A8;
+  --text-tertiary:  #556070;
+  --text-disabled:  #394050;
+  --text-inverse:   var(--cobalt-black-950);
+  --text-accent:    var(--cobalt-blue-300);
+  --text-danger:    var(--cobalt-crimson-400);
+
+  --accent-default: var(--cobalt-blue-500);
+  --accent-hover:   var(--cobalt-blue-400);
+  --accent-pressed: var(--cobalt-blue-600);
+  --accent-subtle:  rgba(37, 99, 235, 0.12);
+  --accent-glow:    rgba(37, 99, 235, 0.25);
+
+  --danger-default: var(--cobalt-crimson-500);
+  --danger-hover:   var(--cobalt-crimson-400);
+  --danger-subtle:  rgba(239, 34, 34, 0.12);
+
+  --status-active:  #34D399;
+  --status-warning: #FBBF24;
+  --status-danger:  var(--cobalt-crimson-400);
+  --status-info:    var(--cobalt-blue-300);
+  --status-neutral: var(--cobalt-silver-400);
+  --status-offline: var(--cobalt-black-400);
+
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 0.6);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.45), 0 2px 4px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5), 0 4px 8px rgba(0, 0, 0, 0.4);
+  --shadow-xl: 0 16px 64px rgba(0, 0, 0, 0.6), 0 8px 16px rgba(0, 0, 0, 0.4);
+  --shadow-glow-cobalt:  0 0 24px rgba(37, 99, 235, 0.3);
+  --shadow-glow-crimson: 0 0 24px rgba(239, 34, 34, 0.3);
+}
+
+/* ─── LIGHT MODE ────────────────────────────────────────────────────────────── */
+
+[data-theme="light"] {
+  --bg-base:    var(--cobalt-off-white);
+  --bg-surface: var(--cobalt-white);
+  --bg-raised:  var(--cobalt-silver-100);
+  --bg-overlay: var(--cobalt-silver-200);
+  --bg-sunken:  #ECEEF2;
+
+  --border-subtle:  rgba(0, 0, 0, 0.04);
+  --border-default: rgba(0, 0, 0, 0.08);
+  --border-strong:  rgba(0, 0, 0, 0.14);
+  --border-accent:  var(--cobalt-blue-500);
+
+  --text-primary:   #0D0F14;
+  --text-secondary: #3D4A5C;
+  --text-tertiary:  #6B7A90;
+  --text-disabled:  #ACB5C4;
+  --text-inverse:   var(--cobalt-off-white);
+  --text-accent:    var(--cobalt-blue-600);
+  --text-danger:    var(--cobalt-crimson-600);
+
+  --accent-default: var(--cobalt-blue-500);
+  --accent-hover:   var(--cobalt-blue-600);
+  --accent-pressed: var(--cobalt-blue-700);
+  --accent-subtle:  rgba(37, 99, 235, 0.08);
+  --accent-glow:    rgba(37, 99, 235, 0.15);
+
+  --danger-default: var(--cobalt-crimson-600);
+  --danger-hover:   var(--cobalt-crimson-500);
+  --danger-subtle:  rgba(196, 19, 19, 0.08);
+
+  --status-active:  #059669;
+  --status-warning: #D97706;
+  --status-danger:  var(--cobalt-crimson-600);
+  --status-info:    var(--cobalt-blue-500);
+  --status-neutral: var(--cobalt-silver-500);
+  --status-offline: var(--cobalt-silver-300);
+
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.07), 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.10), 0 4px 8px rgba(0, 0, 0, 0.07);
+  --shadow-xl: 0 16px 64px rgba(0, 0, 0, 0.12), 0 8px 16px rgba(0, 0, 0, 0.08);
+  --shadow-glow-cobalt:  0 0 24px rgba(37, 99, 235, 0.18);
+  --shadow-glow-crimson: 0 0 24px rgba(196, 19, 19, 0.18);
+}
+
+/* ─── BASE RESET ────────────────────────────────────────────────────────────── */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}

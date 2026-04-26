@@ -1,0 +1,45 @@
+.block {
+  margin-bottom: var(--cobalt-space-8);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: var(--cobalt-space-3);
+  margin-bottom: var(--cobalt-space-4);
+}
+
+.logo {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--cobalt-radius-sm);
+  background: var(--bg-raised);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--cobalt-font-mono);
+  font-size: var(--cobalt-text-xs);
+  font-weight: var(--cobalt-weight-bold);
+  color: var(--text-tertiary);
+  flex-shrink: 0;
+}
+
+.org-info {}
+
+.org-name {
+  font-size: var(--cobalt-text-sm);
+  font-weight: var(--cobalt-weight-semibold);
+  color: var(--text-primary);
+}
+
+.tenure {
+  font-family: var(--cobalt-font-mono);
+  font-size: var(--cobalt-text-xs);
+  color: var(--text-tertiary);
+}
+
+.roles {
+  display: flex;
+  flex-direction: column;
+}
