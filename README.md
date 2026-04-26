@@ -45,16 +45,16 @@ export default function App() {
 ## Components
 
 <!-- STATS:START -->
-| Level | Count |
+| Metric | Value |
 |---|---|
+| Version | `v0.1.0` |
+| Total components | 42 |
 | Typography | 5 |
 | Atoms | 11 |
-| Molecules | 13 |
+| Molecules | 12 |
 | Organisms | 10 |
 | Templates | 4 |
-| **Total** | **43** |
-
-Coverage: **100%** · Version: **0.1.0**
+| Test coverage | 100% |
 <!-- STATS:END -->
 
 ### Typography
