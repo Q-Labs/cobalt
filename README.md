@@ -12,13 +12,19 @@ Dark-first. Cobalt and crimson. Space Grotesk / DM Sans / JetBrains Mono.
 
 ## Install
 
-Add to `.npmrc` in your project:
+Add to your **user-level** `~/.npmrc` (not your project's repo-tracked `.npmrc` — keep the token out of source control):
+
+```
+//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}
+```
+
+Add to your **project** `.npmrc` (safe to commit — no secrets):
 
 ```
 @q-labs:registry=https://npm.pkg.github.com
 ```
 
-Then install:
+Set `GITHUB_TOKEN` to a GitHub PAT with `read:packages` scope, or use your CI provider's built-in token. Then install:
 
 ```bash
 npm install @q-labs/cobalt
