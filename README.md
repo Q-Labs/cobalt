@@ -16,6 +16,7 @@ Add to `.npmrc` in your project:
 
 ```
 @q-labs:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=YOUR_GITHUB_PAT
 ```
 
 Then install:
