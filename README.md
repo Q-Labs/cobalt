@@ -75,7 +75,7 @@ export default function App() {
 <!-- STATS:START -->
 | Metric | Value |
 |---|---|
-| Version | `v0.1.0` |
+| Version | `v0.1.1` |
 | Total components | 42 |
 | Typography | 5 |
 | Atoms | 11 |
