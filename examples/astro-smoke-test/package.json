@@ -1,0 +1,20 @@
+{
+  "name": "cobalt-astro-smoke-test",
+  "private": true,
+  "type": "module",
+  "version": "0.0.0",
+  "description": "Smoke test proving @q-labs/cobalt renders to static HTML with zero client JS in Astro.",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "verify:zero-js": "node verify-zero-js.mjs"
+  },
+  "dependencies": {
+    "@astrojs/react": "^4.2.0",
+    "@q-labs/cobalt": "file:../..",
+    "astro": "^5.6.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}

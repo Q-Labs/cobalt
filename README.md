@@ -70,6 +70,46 @@ export default function App() {
 
 ---
 
+## Using with Astro
+
+Cobalt works in [Astro](https://astro.build) with **zero client JavaScript**. Every component is purely presentational (no hooks, state, context, or browser APIs), so Astro server-renders them to static HTML — you only need an island (`client:*`) for genuinely interactive components.
+
+Install the React renderer alongside Cobalt:
+
+```bash
+npm install @q-labs/cobalt @astrojs/react react react-dom
+npx astro add react
+```
+
+Import the stylesheet once and set the theme on an HTML element — in `.astro` files you set `data-theme` directly instead of using `<CobaltProvider>`:
+
+```astro
+---
+// src/layouts/Base.astro
+import '@q-labs/cobalt/styles.css'
+---
+<html lang="en" data-theme="dark">
+  <body><slot /></body>
+</html>
+```
+
+Then use components in any `.astro` page. **With no `client:*` directive, Astro renders them to static HTML and ships no component JS:**
+
+```astro
+---
+import { Heading, Button, Badge, Card } from '@q-labs/cobalt'
+---
+<Card title="Status">
+  <Heading level={2}>Hello</Heading>
+  <Badge variant="active">Active</Badge>
+  <Button variant="primary">Get started</Button>
+</Card>
+```
+
+Reach for `<CobaltProvider>` only inside a React island that needs to override the theme for a hydrated subtree. A runnable proof-of-concept (with a `verify:zero-js` check) lives in [`examples/astro-smoke-test`](./examples/astro-smoke-test).
+
+---
+
 ## Components
 
 <!-- STATS:START -->
