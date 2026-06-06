@@ -1,0 +1,27 @@
+---
+// Cobalt React components used directly in an .astro page. No `client:*`
+// directive => Astro renders them to static HTML and ships zero JS.
+import Base from '../layouts/Base.astro'
+import { Heading, Body, Button, Badge, Card } from '@q-labs/cobalt'
+---
+
+<Base title="Cobalt × Astro — zero-JS smoke test">
+  <main style="max-width: 720px; margin: 0 auto; padding: 4rem 1.5rem;">
+    <Heading level={1}>Cobalt runs in Astro</Heading>
+    <Body variant="lg">
+      Every component below is server-rendered to static HTML. Open devtools
+      and check the network tab — no component JavaScript is loaded.
+    </Body>
+
+    <Card title="Status" meta="smoke test">
+      <Badge variant="active">Active</Badge>
+      <Badge variant="shipped">Shipped</Badge>
+      <Badge variant="wip">WIP</Badge>
+    </Card>
+
+    <p style="margin-top: 1.5rem;">
+      <Button variant="primary">Primary</Button>
+      <Button variant="ghost">Ghost</Button>
+    </p>
+  </main>
+</Base>
