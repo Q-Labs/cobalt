@@ -1,7 +1,7 @@
 .card {
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
-  border-radius: var(--cobalt-radius-lg);
+  border-radius: var(--radius-lg);
   overflow: hidden;
   transition: border-color 150ms ease, box-shadow 150ms ease;
 }
@@ -15,25 +15,25 @@
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  gap: var(--cobalt-space-4);
-  padding: var(--cobalt-space-4) var(--cobalt-space-4) 0;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-4) 0;
   border-bottom: 1px solid var(--border-subtle);
-  padding-bottom: var(--cobalt-space-3);
+  padding-bottom: var(--space-3);
 }
 
 .title {
-  font-family: var(--cobalt-font-display);
-  font-size: var(--cobalt-text-sm);
-  font-weight: var(--cobalt-weight-semibold);
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
   color: var(--text-primary);
 }
 
 .meta {
-  font-family: var(--cobalt-font-mono);
-  font-size: var(--cobalt-text-xs);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
   color: var(--text-tertiary);
 }
 
 .body {
-  padding: var(--cobalt-space-4);
+  padding: var(--space-4);
 }

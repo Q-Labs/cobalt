@@ -1,13 +1,13 @@
 .row {
   display: flex;
   align-items: center;
-  gap: var(--cobalt-space-3);
-  padding: var(--cobalt-space-2) 0;
+  gap: var(--space-3);
+  padding: var(--space-2) 0;
 }
 
 .name {
   flex: 1;
-  font-size: var(--cobalt-text-xs);
+  font-size: var(--text-xs);
   color: var(--text-secondary);
 }
 

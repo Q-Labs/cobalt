@@ -1,11 +1,11 @@
 .card {
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
-  border-radius: var(--cobalt-radius-lg);
-  padding: var(--cobalt-space-4);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
   display: flex;
   flex-direction: column;
-  gap: var(--cobalt-space-3);
+  gap: var(--space-3);
   transition: border-color 150ms ease, box-shadow 150ms ease;
   position: relative;
   overflow: hidden;
@@ -20,13 +20,13 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: var(--cobalt-space-3);
+  gap: var(--space-3);
 }
 
 .icon {
   width: 36px;
   height: 36px;
-  border-radius: var(--cobalt-radius-md);
+  border-radius: var(--radius-md);
   background: var(--bg-raised);
   border: 1px solid var(--border-subtle);
   display: flex;
@@ -36,36 +36,36 @@
 }
 
 .title {
-  font-family: var(--cobalt-font-display);
-  font-size: var(--cobalt-text-base);
-  font-weight: var(--cobalt-weight-semibold);
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: var(--weight-semibold);
   color: var(--text-primary);
 }
 
 .description {
-  font-size: var(--cobalt-text-sm);
+  font-size: var(--text-sm);
   color: var(--text-secondary);
-  line-height: var(--cobalt-leading-relaxed);
+  line-height: var(--leading-relaxed);
 }
 
 .tags {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--cobalt-space-1);
+  gap: var(--space-1);
 }
 
 .footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: var(--cobalt-space-3);
+  padding-top: var(--space-3);
   border-top: 1px solid var(--border-subtle);
   margin-top: auto;
 }
 
 .link {
-  font-family: var(--cobalt-font-mono);
-  font-size: var(--cobalt-text-xs);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
   color: var(--text-accent);
   text-decoration: none;
 }

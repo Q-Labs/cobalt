@@ -4,11 +4,11 @@
   justify-content: center;
   min-width: 18px;
   height: 18px;
-  padding: 0 var(--cobalt-space-1);
+  padding: 0 var(--space-1);
   background: var(--accent-default);
-  color: var(--cobalt-white);
-  font-family: var(--cobalt-font-mono);
-  font-size: var(--cobalt-text-2xs);
-  font-weight: var(--cobalt-weight-medium);
-  border-radius: var(--cobalt-radius-full);
+  color: var(--white);
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-medium);
+  border-radius: var(--radius-full);
 }

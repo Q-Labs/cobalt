@@ -1,14 +1,14 @@
 .mission {
   display: flex;
   align-items: center;
-  gap: var(--cobalt-space-3);
-  padding: var(--cobalt-space-2) 0;
+  gap: var(--space-3);
+  padding: var(--space-2) 0;
 }
 
 .status {
   width: 8px;
   height: 8px;
-  border-radius: var(--cobalt-radius-full);
+  border-radius: var(--radius-full);
   flex-shrink: 0;
 }
 
@@ -19,20 +19,20 @@
 
 .name {
   flex: 1;
-  font-size: var(--cobalt-text-sm);
+  font-size: var(--text-sm);
   color: var(--text-primary);
-  font-weight: var(--cobalt-weight-medium);
+  font-weight: var(--weight-medium);
 }
 
 .progress-wrap {
   display: flex;
   align-items: center;
-  gap: var(--cobalt-space-2);
+  gap: var(--space-2);
 }
 
 .pct {
-  font-family: var(--cobalt-font-mono);
-  font-size: var(--cobalt-text-xs);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
   color: var(--text-tertiary);
   width: 32px;
   text-align: right;
