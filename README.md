@@ -115,7 +115,7 @@ Reach for `<CobaltProvider>` only inside a React island that needs to override t
 <!-- STATS:START -->
 | Metric | Value |
 |---|---|
-| Version | `v0.1.1` |
+| Version | `v0.2.0` |
 | Total components | 42 |
 | Typography | 5 |
 | Atoms | 11 |
