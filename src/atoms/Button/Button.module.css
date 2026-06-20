@@ -2,10 +2,10 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: var(--cobalt-space-2);
-  font-family: var(--cobalt-font-body);
-  font-weight: var(--cobalt-weight-medium);
-  border-radius: var(--cobalt-radius-md);
+  gap: var(--space-2);
+  font-family: var(--font-body);
+  font-weight: var(--weight-medium);
+  border-radius: var(--radius-md);
   border: 1px solid transparent;
   cursor: pointer;
   text-decoration: none;
@@ -25,27 +25,27 @@
 
 /* Sizes */
 .btn--sm {
-  font-size: var(--cobalt-text-xs);
-  padding: var(--cobalt-space-1) var(--cobalt-space-3);
+  font-size: var(--text-xs);
+  padding: var(--space-1) var(--space-3);
   height: 28px;
 }
 
 .btn--md {
-  font-size: var(--cobalt-text-sm);
-  padding: var(--cobalt-space-2) var(--cobalt-space-4);
+  font-size: var(--text-sm);
+  padding: var(--space-2) var(--space-4);
   height: 36px;
 }
 
 .btn--lg {
-  font-size: var(--cobalt-text-base);
-  padding: var(--cobalt-space-3) var(--cobalt-space-6);
+  font-size: var(--text-base);
+  padding: var(--space-3) var(--space-6);
   height: 44px;
 }
 
 /* Primary */
 .btn--primary {
   background: var(--accent-default);
-  color: var(--cobalt-white);
+  color: var(--white);
   border-color: var(--accent-default);
 }
 

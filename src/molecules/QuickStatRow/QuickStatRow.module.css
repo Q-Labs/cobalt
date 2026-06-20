@@ -2,17 +2,17 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--cobalt-space-2) 0;
+  padding: var(--space-2) 0;
 }
 
 .label {
-  font-family: var(--cobalt-font-body);
-  font-size: var(--cobalt-text-xs);
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
   color: var(--text-tertiary);
 }
 
 .value {
-  font-family: var(--cobalt-font-mono);
-  font-size: var(--cobalt-text-xs);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
   color: var(--text-primary);
 }

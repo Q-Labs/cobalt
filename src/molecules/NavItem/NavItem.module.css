@@ -1,14 +1,14 @@
 .nav-item {
   display: flex;
   align-items: center;
-  gap: var(--cobalt-space-3);
-  padding: var(--cobalt-space-2) var(--cobalt-space-3);
-  border-radius: var(--cobalt-radius-md);
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
   cursor: pointer;
   color: var(--text-secondary);
-  font-family: var(--cobalt-font-body);
-  font-size: var(--cobalt-text-sm);
-  font-weight: var(--cobalt-weight-medium);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
   transition: background 120ms ease, color 120ms ease;
   position: relative;
   user-select: none;
@@ -32,7 +32,7 @@
   bottom: 6px;
   width: 2px;
   background: var(--accent-default);
-  border-radius: var(--cobalt-radius-full);
+  border-radius: var(--radius-full);
 }
 
 .icon {

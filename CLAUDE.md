@@ -75,7 +75,7 @@ CI enforces 100% coverage. A PR cannot merge until all checks are green.
 
 - **CSS Modules only** — no inline styles, no Tailwind, no styled-components.
 - **All values use design tokens** — `var(--accent-default)` not `#2563EB`.
-- Token file: `src/tokens/index.css`. Primitive tokens are prefixed `--cobalt-*`. Semantic tokens are unprefixed (`--bg-base`, `--text-primary`, etc.).
+- Token file: `src/tokens/index.css`. Primitive tokens use short scale names (`--cobalt-*` for the blue/cobalt ramp, plus `--black-*`, `--crimson-*`, `--silver-*`, `--space-*`, `--radius-*`, `--text-*`, etc.). Semantic tokens are unprefixed (`--bg-base`, `--text-primary`, etc.).
 - Dark mode is the default (`:root`). Light mode overrides via `[data-theme="light"]`.
 - Use `CobaltProvider` or set `data-theme` on any ancestor element.
 

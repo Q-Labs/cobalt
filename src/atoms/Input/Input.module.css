@@ -1,13 +1,13 @@
 .input {
   display: block;
   width: 100%;
-  font-family: var(--cobalt-font-body);
-  font-size: var(--cobalt-text-sm);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
   color: var(--text-primary);
   background: var(--bg-surface);
   border: 1px solid var(--border-default);
-  border-radius: var(--cobalt-radius-md);
-  padding: var(--cobalt-space-2) var(--cobalt-space-4);
+  border-radius: var(--radius-md);
+  padding: var(--space-2) var(--space-4);
   height: 40px;
   outline: none;
   transition: border-color 120ms ease, box-shadow 120ms ease;

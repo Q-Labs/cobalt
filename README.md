@@ -166,7 +166,7 @@ Import tokens directly for custom integrations:
 @import '@q-labs/cobalt/tokens';
 ```
 
-Token categories: color primitives (`--cobalt-*`, `--crimson-*`), semantic colors (`--bg-base`, `--text-primary`, `--accent-default`), typography scale, spacing, border radius.
+Token categories: color primitives (`--cobalt-*`, `--black-*`, `--crimson-*`, `--silver-*`), semantic colors (`--bg-base`, `--text-primary`, `--accent-default`), typography scale, spacing, border radius.
 
 ---
 

@@ -23,7 +23,7 @@ Always write the test file before the implementation. The test must fail first (
 - CSS Modules only — `import styles from './ComponentName.module.css'`
 - No inline `style={{}}` props
 - No hardcoded color/spacing values — always use `var(--token-name)`
-- Design tokens are in `src/tokens/index.css`, prefixed `--cobalt-*` for primitives and unprefixed for semantic tokens (`--bg-base`, `--text-primary`, `--accent-default`, etc.)
+- Design tokens are in `src/tokens/index.css`. Primitives use short scale names (`--cobalt-*`, `--black-*`, `--crimson-*`, `--silver-*`, `--space-*`, `--radius-*`, `--text-*`, etc.); semantic tokens are also unprefixed (`--bg-base`, `--text-primary`, `--accent-default`, etc.)
 - Dark mode is default on `:root`; light mode is `[data-theme="light"]`
 
 ## TypeScript rules

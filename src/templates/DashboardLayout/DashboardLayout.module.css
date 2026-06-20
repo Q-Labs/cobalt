@@ -15,5 +15,5 @@
 .content {
   flex: 1;
   overflow-y: auto;
-  padding: var(--cobalt-space-6);
+  padding: var(--space-6);
 }

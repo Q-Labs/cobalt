@@ -1,11 +1,11 @@
 .card {
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
-  border-radius: var(--cobalt-radius-lg);
-  padding: var(--cobalt-space-6);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
   display: flex;
   flex-direction: column;
-  gap: var(--cobalt-space-4);
+  gap: var(--space-4);
   transition: border-color 150ms ease, transform 150ms ease, box-shadow 150ms ease;
 }
 
@@ -18,7 +18,7 @@
 .icon {
   width: 40px;
   height: 40px;
-  border-radius: var(--cobalt-radius-md);
+  border-radius: var(--radius-md);
   background: var(--accent-subtle);
   color: var(--text-accent);
   display: flex;
@@ -27,14 +27,14 @@
 }
 
 .title {
-  font-family: var(--cobalt-font-display);
-  font-size: var(--cobalt-text-base);
-  font-weight: var(--cobalt-weight-semibold);
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: var(--weight-semibold);
   color: var(--text-primary);
 }
 
 .desc {
-  font-size: var(--cobalt-text-sm);
+  font-size: var(--text-sm);
   color: var(--text-secondary);
-  line-height: var(--cobalt-leading-relaxed);
+  line-height: var(--leading-relaxed);
 }
