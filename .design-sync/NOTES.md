@@ -30,3 +30,13 @@ overwrites of existing files, no bundle changes).
 Do NOT run the full converter into this project. Keep it additive. Never overwrite the
 existing `_ds_bundle.js`, `_ds_manifest.json`, `README.md`, `colors_and_type.css`,
 `design-canvas.jsx`, `preview/*` (existing), `ui_kits/*`, or `assets/*`.
+
+`config.json` deliberately **omits `shape`/`storybookConfigDir`**. Pinning `shape:
+storybook` would short-circuit `/design-sync` detection straight into the full Storybook
+converter path — the exact full-bundle sync that collides with the SPA `_ds_bundle.js`
+above. The config also lacks the anchor metadata (`pkg`, `globalName`, reference build
+path/command) a real converter re-sync needs, so it must NOT masquerade as one. The only
+skill-read key kept here is `projectId` (pins the target so a re-run repairs THIS project
+instead of orphaning a duplicate); `mode`/`cardsLocalDir` are custom markers for this
+additive workflow. To add more cards later: author static HTML under
+`cardsLocalDir/preview/` and upload additively (finalize_plan with empty `deletes`).
