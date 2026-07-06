@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Components" name="Signals & Alerts" subtitle="SignalItem — active, warning, danger & info, with icon, title, body & timestamp" viewport="620x340" -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 18px; background: #080A0F; font-family: var(--font-body), 'DM Sans', sans-serif; color: var(--text-primary); }
+  .panel { max-width: 560px; background: var(--bg-surface); border: 1px solid var(--border-default); border-radius: var(--radius-lg); padding: var(--space-2) var(--space-4); }
+  .label { font-family: var(--font-mono), 'JetBrains Mono', monospace; font-size: 9px; color: #394050; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 10px; }
+
+  .signal { display: flex; align-items: flex-start; gap: var(--space-3); padding: var(--space-3) 0; border-bottom: 1px solid var(--border-subtle); }
+  .signal:last-child { border-bottom: none; }
+  .icon-wrap { width: 36px; height: 36px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .icon-wrap svg { width: 18px; height: 18px; stroke: currentColor; stroke-width: 1.5; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+  .signal--active .icon-wrap  { background: rgba(52,211,153,0.12); color: var(--status-active); }
+  .signal--warning .icon-wrap { background: rgba(251,191,36,0.12); color: var(--status-warning); }
+  .signal--danger .icon-wrap  { background: var(--danger-subtle); color: var(--status-danger); }
+  .signal--info .icon-wrap    { background: var(--accent-subtle); color: var(--status-info); }
+  .s-content { flex: 1; min-width: 0; }
+  .s-title { font-size: var(--text-sm); font-weight: var(--weight-medium); color: var(--text-primary); margin-bottom: var(--space-1); }
+  .s-body { font-size: var(--text-xs); color: var(--text-secondary); margin-bottom: var(--space-1); line-height: var(--leading-normal); }
+  .s-timestamp { font-family: var(--font-mono), monospace; font-size: var(--text-2xs); color: var(--text-tertiary); }
+</style>
+</head>
+<body>
+  <div class="label">SignalItem — Signal feed</div>
+  <div class="panel">
+    <div class="signal signal--active">
+      <div class="icon-wrap"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+      <div class="s-content">
+        <div class="s-title">Deploy succeeded</div>
+        <div class="s-body">cobalt@0.2.0 published to GitHub Packages.</div>
+        <div class="s-timestamp">2m ago</div>
+      </div>
+    </div>
+    <div class="signal signal--warning">
+      <div class="icon-wrap"><svg viewBox="0 0 24 24"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg></div>
+      <div class="s-content">
+        <div class="s-title">Coverage dipped below target</div>
+        <div class="s-body">Statements at 98.2% — restore to 100% before merge.</div>
+        <div class="s-timestamp">18m ago</div>
+      </div>
+    </div>
+    <div class="signal signal--danger">
+      <div class="icon-wrap"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg></div>
+      <div class="s-content">
+        <div class="s-title">CI pipeline failed</div>
+        <div class="s-body">Type check errored in templates/DashboardLayout.</div>
+        <div class="s-timestamp">1h ago</div>
+      </div>
+    </div>
+    <div class="signal signal--info">
+      <div class="icon-wrap"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg></div>
+      <div class="s-content">
+        <div class="s-title">New changeset detected</div>
+        <div class="s-body">Version Packages PR opened for review.</div>
+        <div class="s-timestamp">3h ago</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Components" name="Hero, Feature & Project Cards" subtitle="Hero, FeatureCard, ProjectCard + Divider, NavBadge & Label utility atoms" viewport="900x640" -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 20px; background: #080A0F; font-family: var(--font-body), 'DM Sans', sans-serif; color: var(--text-primary); }
+  .label { font-family: var(--font-mono), 'JetBrains Mono', monospace; font-size: 9px; color: #394050; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px; }
+  .section { margin-bottom: 28px; }
+
+  /* Hero */
+  .hero { padding: var(--space-8) var(--space-6); max-width: 620px; margin: 0 auto; text-align: center; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-xl); }
+  .eyebrow { display: inline-flex; align-items: center; gap: var(--space-2); font-family: var(--font-mono), monospace; font-size: var(--text-xs); color: var(--text-tertiary); letter-spacing: var(--tracking-wider); text-transform: uppercase; margin-bottom: var(--space-4); }
+  .eyebrow::before { content: ''; display: block; width: 20px; height: 1px; background: var(--text-tertiary); }
+  .headline { font-family: var(--font-display), sans-serif; font-size: var(--text-5xl); font-weight: var(--weight-bold); line-height: var(--leading-tight); letter-spacing: var(--tracking-tight); color: var(--text-primary); margin: 0 0 var(--space-4); }
+  .sub { font-size: var(--text-lg); color: var(--text-secondary); line-height: var(--leading-relaxed); margin-bottom: var(--space-6); }
+  .actions { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: var(--space-3); margin-bottom: var(--space-6); }
+  .hero-meta { display: flex; align-items: center; justify-content: center; gap: var(--space-4); font-family: var(--font-mono), monospace; font-size: var(--text-xs); color: var(--text-tertiary); }
+
+  /* Button */
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2); font-family: var(--font-body), sans-serif; font-weight: var(--weight-medium); border-radius: var(--radius-md); border: 1px solid transparent; font-size: var(--text-sm); padding: var(--space-2) var(--space-4); height: 36px; }
+  .btn--primary { background: var(--accent-default); color: var(--white); border-color: var(--accent-default); }
+  .btn--ghost { background: transparent; color: var(--text-primary); border-color: var(--border-default); }
+
+  /* Cards grid */
+  .grid { display: flex; gap: 14px; flex-wrap: wrap; align-items: stretch; }
+
+  /* FeatureCard */
+  .feature { background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: var(--space-6); display: flex; flex-direction: column; gap: var(--space-4); width: 210px; }
+  .feature-icon { width: 40px; height: 40px; border-radius: var(--radius-md); background: var(--accent-subtle); color: var(--text-accent); display: flex; align-items: center; justify-content: center; }
+  .feature-icon svg { width: 20px; height: 20px; stroke: currentColor; stroke-width: 1.5; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+  .feature-title { font-family: var(--font-display), sans-serif; font-size: var(--text-base); font-weight: var(--weight-semibold); color: var(--text-primary); }
+  .feature-desc { font-size: var(--text-sm); color: var(--text-secondary); line-height: var(--leading-relaxed); }
+
+  /* ProjectCard */
+  .project { background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: var(--space-4); display: flex; flex-direction: column; gap: var(--space-3); width: 260px; }
+  .p-top { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-3); }
+  .p-icon { width: 36px; height: 36px; border-radius: var(--radius-md); background: var(--bg-raised); border: 1px solid var(--border-subtle); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--text-accent); font-family: var(--font-mono), monospace; font-weight: 700; }
+  .p-title { font-family: var(--font-display), sans-serif; font-size: var(--text-base); font-weight: var(--weight-semibold); color: var(--text-primary); }
+  .p-desc { font-size: var(--text-sm); color: var(--text-secondary); line-height: var(--leading-relaxed); }
+  .p-tags { display: flex; flex-wrap: wrap; gap: var(--space-1); }
+  .tag { display: inline-flex; align-items: center; font-family: var(--font-mono), monospace; font-size: var(--text-2xs); color: var(--text-tertiary); background: var(--bg-raised); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 2px var(--space-2); letter-spacing: var(--tracking-wide); }
+  .badge { font-family: var(--font-mono), monospace; font-size: 9px; padding: 2px 8px; border-radius: 9999px; background: rgba(52,211,153,0.1); color: var(--status-active); border: 1px solid rgba(52,211,153,0.2); }
+  .p-footer { display: flex; align-items: center; justify-content: space-between; padding-top: var(--space-3); border-top: 1px solid var(--border-subtle); }
+  .p-link { font-family: var(--font-mono), monospace; font-size: var(--text-xs); color: var(--text-accent); text-decoration: none; }
+  .p-mini { width: 64px; height: 4px; background: rgba(255,255,255,0.06); border-radius: 9999px; overflow: hidden; }
+  .p-mini span { display: block; height: 100%; background: var(--accent-default); }
+
+  /* Utility atoms */
+  .util-row { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
+  .divider-h { width: 240px; height: 1px; background: var(--border-default); border: none; }
+  .vbox { display: flex; align-items: center; gap: 12px; height: 40px; font-family: var(--font-mono), monospace; font-size: 10px; color: var(--text-secondary); }
+  .divider-v { width: 1px; height: 100%; background: var(--border-default); }
+  .nav-badge { display: inline-flex; align-items: center; justify-content: center; min-width: 18px; height: 18px; padding: 0 4px; background: var(--accent-default); color: var(--white); font-family: var(--font-mono), monospace; font-size: var(--text-2xs); font-weight: var(--weight-medium); border-radius: var(--radius-full); }
+  .lbl { text-transform: uppercase; letter-spacing: var(--tracking-wide); color: var(--text-tertiary); font-weight: var(--weight-medium); }
+  .lbl-lg { font-size: var(--text-sm); }
+  .lbl-md { font-size: var(--text-xs); }
+  .lbl-sm { font-size: var(--text-2xs); }
+</style>
+</head>
+<body>
+  <div class="section">
+    <div class="label">Hero</div>
+    <div class="hero">
+      <span class="eyebrow">Quincy OS</span>
+      <h1 class="headline">Ship fast. Document clearly.</h1>
+      <p class="sub">A premium personal operating system for tracking work, life, and ambitious projects.</p>
+      <div class="actions">
+        <span class="btn btn--primary">Get started</span>
+        <span class="btn btn--ghost">View source</span>
+      </div>
+      <div class="hero-meta"><span>v1.1</span><span>·</span><span>updated 3d ago</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="label">FeatureCard &nbsp;·&nbsp; ProjectCard</div>
+    <div class="grid">
+      <div class="feature">
+        <div class="feature-icon"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></div>
+        <div class="feature-title">Command Center</div>
+        <div class="feature-desc">Surface the metrics that drive your next decision, nothing more.</div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg></div>
+        <div class="feature-title">Modular by default</div>
+        <div class="feature-desc">Every component works standalone and composes cleanly.</div>
+      </div>
+      <div class="project">
+        <div class="p-top">
+          <div class="p-icon">P</div>
+          <span class="badge">ACTIVE</span>
+        </div>
+        <div class="p-title">Portfolio Rebuild</div>
+        <div class="p-desc">New personal site powered by the Quincy OS design system.</div>
+        <div class="p-tags"><span class="tag">React</span><span class="tag">Vite</span><span class="tag">Cobalt</span></div>
+        <div class="p-footer">
+          <a class="p-link" href="#">open →</a>
+          <span class="p-mini"><span style="width:68%"></span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="label">Divider &nbsp;·&nbsp; NavBadge &nbsp;·&nbsp; Label</div>
+    <div class="util-row">
+      <hr class="divider-h">
+      <div class="vbox"><span>Missions</span><span class="divider-v"></span><span>Signals</span><span class="divider-v"></span><span>Patch Notes</span></div>
+      <span class="nav-badge">3</span>
+      <span class="nav-badge">12</span>
+      <span class="nav-badge">99+</span>
+      <span class="lbl lbl-lg">Active</span>
+      <span class="lbl lbl-md">Installed</span>
+      <span class="lbl lbl-sm">Pending</span>
+    </div>
+  </div>
+</body>
+</html>

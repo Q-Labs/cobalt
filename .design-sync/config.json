@@ -1,0 +1,7 @@
+{
+  "projectId": "019dc5d9-0405-7f1a-b34a-613f095cfc3b",
+  "shape": "storybook",
+  "storybookConfigDir": ".storybook",
+  "mode": "missing-cards-only",
+  "cardsLocalDir": ".design-sync/cards"
+}
