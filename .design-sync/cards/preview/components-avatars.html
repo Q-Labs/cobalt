@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Components" name="Avatars & User Presence" subtitle="Avatar sizes (image + initials), UserBlock, and StatusDot states" viewport="700x260" -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 16px; background: #080A0F; font-family: var(--font-body), 'DM Sans', sans-serif; color: var(--text-primary); }
+  .label { font-family: var(--font-mono), 'JetBrains Mono', monospace; font-size: 9px; color: #394050; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 10px; }
+  .row { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; margin-bottom: 20px; }
+
+  /* Avatar */
+  .avatar { display: inline-flex; align-items: center; justify-content: center; border-radius: var(--radius-full); background: var(--accent-subtle); color: var(--text-accent); font-family: var(--font-body), sans-serif; font-weight: var(--weight-semibold); overflow: hidden; flex-shrink: 0; }
+  .avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .avatar--sm { width: 28px; height: 28px; font-size: var(--text-2xs); }
+  .avatar--md { width: 36px; height: 36px; font-size: var(--text-xs); }
+  .avatar--lg { width: 56px; height: 56px; font-size: var(--text-base); }
+
+  /* UserBlock */
+  .user-block { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3); background: var(--bg-surface); border: 1px solid var(--border-default); border-radius: var(--radius-lg); min-width: 200px; }
+  .ub-info { flex: 1; min-width: 0; }
+  .ub-name { font-size: var(--text-sm); font-weight: var(--weight-medium); color: var(--text-primary); }
+  .ub-status { display: flex; align-items: center; gap: var(--space-1); font-family: var(--font-mono), monospace; font-size: var(--text-2xs); color: var(--text-tertiary); margin-top: 2px; }
+
+  /* StatusDot */
+  .status-dot { display: inline-block; width: 8px; height: 8px; border-radius: var(--radius-full); flex-shrink: 0; }
+  .sd--active  { background: var(--status-active); }
+  .sd--warning { background: var(--status-warning); }
+  .sd--danger  { background: var(--status-danger); }
+  .sd--info    { background: var(--status-info); }
+  .sd--offline { background: var(--status-offline); }
+  .dot-group { display: flex; gap: 18px; align-items: center; }
+  .dot-item { display: flex; align-items: center; gap: 7px; font-family: var(--font-mono), monospace; font-size: 10px; color: var(--text-secondary); }
+  @keyframes pulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.6; transform: scale(0.85); } }
+  .sd--animated { animation: pulse 2s ease-in-out infinite; }
+</style>
+</head>
+<body>
+  <div class="label">Avatar — sizes & sources</div>
+  <div class="row">
+    <span class="avatar avatar--sm">QI</span>
+    <span class="avatar avatar--md">QI</span>
+    <span class="avatar avatar--lg">QI</span>
+    <span class="avatar avatar--lg"><img src="../assets/headshot.jpg" alt="Quincy Iheme"></span>
+    <span class="avatar avatar--md">AK</span>
+    <span class="avatar avatar--sm">M</span>
+  </div>
+
+  <div class="label">UserBlock</div>
+  <div class="row">
+    <div class="user-block">
+      <span class="avatar avatar--sm"><img src="../assets/headshot.jpg" alt=""></span>
+      <div class="ub-info">
+        <div class="ub-name">Quincy Iheme</div>
+        <div class="ub-status"><span class="status-dot sd--active"></span>ONLINE</div>
+      </div>
+    </div>
+    <div class="user-block">
+      <span class="avatar avatar--sm">AK</span>
+      <div class="ub-info">
+        <div class="ub-name">Ada Kane</div>
+        <div class="ub-status"><span class="status-dot sd--offline"></span>OFFLINE</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="label">StatusDot — states</div>
+  <div class="dot-group">
+    <span class="dot-item"><span class="status-dot sd--active sd--animated"></span>active</span>
+    <span class="dot-item"><span class="status-dot sd--warning"></span>warning</span>
+    <span class="dot-item"><span class="status-dot sd--danger"></span>danger</span>
+    <span class="dot-item"><span class="status-dot sd--info"></span>info</span>
+    <span class="dot-item"><span class="status-dot sd--offline"></span>offline</span>
+  </div>
+</body>
+</html>
