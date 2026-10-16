@@ -16,22 +16,23 @@
 
 .icon {
   margin-top: 1px;
+  color: var(--toast-tone);
 }
 
-.toast--success .icon {
-  color: var(--status-active);
+.toast--success {
+  --toast-tone: var(--status-active);
 }
 
-.toast--warning .icon {
-  color: var(--status-warning);
+.toast--warning {
+  --toast-tone: var(--status-warning);
 }
 
-.toast--error .icon {
-  color: var(--status-danger);
+.toast--error {
+  --toast-tone: var(--status-danger);
 }
 
-.toast--info .icon {
-  color: var(--status-info);
+.toast--info {
+  --toast-tone: var(--status-info);
 }
 
 .text {

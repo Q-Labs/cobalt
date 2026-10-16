@@ -23,6 +23,14 @@ const icons: Record<ToastVariant, StrokeIconName> = {
   info: 'info',
 }
 
+/** Errors interrupt (`alert`); everything else waits politely (`status`). */
+const roles: Record<ToastVariant, 'alert' | 'status'> = {
+  success: 'status',
+  warning: 'status',
+  error: 'alert',
+  info: 'status',
+}
+
 export default function Toast({
   variant = 'info',
   title,
@@ -35,7 +43,7 @@ export default function Toast({
 }: ToastProps) {
   return (
     <div
-      role={variant === 'error' ? 'alert' : 'status'}
+      role={roles[variant]}
       className={cx(styles.toast, styles[`toast--${variant}`], className)}
       {...props}
     >
