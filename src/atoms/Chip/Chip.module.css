@@ -44,3 +44,13 @@
   font-size: var(--text-xs);
   color: var(--text-secondary);
 }
+
+.chip--selected .count {
+  color: var(--text-accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chip {
+    transition: none;
+  }
+}
