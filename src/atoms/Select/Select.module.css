@@ -22,6 +22,10 @@
   transition: border-color 120ms ease, box-shadow 120ms ease;
 }
 
+.select:hover:not(:disabled) {
+  border-color: var(--border-strong);
+}
+
 .select:focus {
   border-color: var(--accent-default);
   box-shadow: 0 0 0 3px var(--accent-glow);
@@ -50,4 +54,10 @@
   transform: translateY(-50%);
   color: var(--text-secondary);
   pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .select {
+    transition: none;
+  }
 }
