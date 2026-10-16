@@ -22,6 +22,30 @@ export interface SegmentedControlProps
   size?: SegmentedControlSize
 }
 
+/**
+ * Where a key press moves focus, as an index into `options`. `enabled` lists the
+ * indexes that can take focus; `from` is the position within `enabled` that has it.
+ * Returns undefined for keys the radio pattern doesn't handle.
+ */
+function targetIndex(key: string, from: number, enabled: number[]): number | undefined {
+  if (enabled.length === 0) return undefined
+  const last = enabled.length - 1
+  switch (key) {
+    case 'ArrowRight':
+    case 'ArrowDown':
+      return enabled[from === last ? 0 : from + 1]
+    case 'ArrowLeft':
+    case 'ArrowUp':
+      return enabled[from <= 0 ? last : from - 1]
+    case 'Home':
+      return enabled[0]
+    case 'End':
+      return enabled[last]
+    default:
+      return undefined
+  }
+}
+
 export default function SegmentedControl({
   options,
   value,
@@ -48,27 +72,9 @@ export default function SegmentedControl({
   }
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
-    if (enabled.length === 0) return
     const from = enabled.indexOf(refs.current.indexOf(e.target as HTMLButtonElement))
-    let to: number
-    switch (e.key) {
-      case 'ArrowRight':
-      case 'ArrowDown':
-        to = enabled[(from + 1) % enabled.length]
-        break
-      case 'ArrowLeft':
-      case 'ArrowUp':
-        to = enabled[(from - 1 + enabled.length) % enabled.length]
-        break
-      case 'Home':
-        to = enabled[0]
-        break
-      case 'End':
-        to = enabled[enabled.length - 1]
-        break
-      default:
-        return
-    }
+    const to = targetIndex(e.key, from, enabled)
+    if (to === undefined) return
     e.preventDefault()
     refs.current[to]!.focus()
     select(to)
