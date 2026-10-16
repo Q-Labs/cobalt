@@ -1,0 +1,46 @@
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  height: 32px;
+  padding: 0 var(--space-3);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--text-secondary);
+  background: transparent;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 120ms ease, border-color 120ms ease, color 120ms ease;
+}
+
+.chip:hover:not(:disabled) {
+  color: var(--text-primary);
+  background: var(--bg-raised);
+  border-color: var(--border-strong);
+}
+
+.chip:focus-visible {
+  outline: 2px solid var(--text-accent);
+  outline-offset: 2px;
+}
+
+.chip--selected,
+.chip--selected:hover:not(:disabled) {
+  color: var(--text-primary);
+  background: var(--accent-subtle);
+  border-color: var(--border-accent);
+}
+
+.chip:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.count {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+}
