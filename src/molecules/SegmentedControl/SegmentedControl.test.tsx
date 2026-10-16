@@ -36,6 +36,43 @@ describe('SegmentedControl', () => {
     expect(screen.getByRole('radio', { name: 'A' })).toHaveAttribute('tabindex', '-1')
   })
 
+  it('keeps a disabled checked option out of the tab order', () => {
+    const options = [
+      { value: 'HIGH', label: 'High' },
+      { value: 'MEDIUM', label: 'Medium', disabled: true },
+      { value: 'LOW', label: 'Low' },
+    ]
+    render(<SegmentedControl aria-label="Priority" options={options} defaultValue="MEDIUM" />)
+    expect(screen.getByRole('radio', { name: 'Medium' })).toHaveAttribute('tabindex', '-1')
+    expect(screen.getByRole('radio', { name: 'High' })).toHaveAttribute('tabindex', '0')
+  })
+
+  it("calls the consumer's onKeyDown and still moves focus", async () => {
+    const onKeyDown = vi.fn()
+    render(<SegmentedControl aria-label="Priority" options={priorities} defaultValue="HIGH" onKeyDown={onKeyDown} />)
+    screen.getByRole('radio', { name: 'High' }).focus()
+    await userEvent.keyboard('{ArrowRight}')
+    expect(onKeyDown).toHaveBeenCalledOnce()
+    expect(screen.getByRole('radio', { name: 'Medium' })).toHaveFocus()
+  })
+
+  it("lets the consumer's onKeyDown opt out with preventDefault", async () => {
+    const onChange = vi.fn()
+    render(
+      <SegmentedControl
+        aria-label="Priority"
+        options={priorities}
+        defaultValue="HIGH"
+        onChange={onChange}
+        onKeyDown={(e) => e.preventDefault()}
+      />,
+    )
+    screen.getByRole('radio', { name: 'High' }).focus()
+    await userEvent.keyboard('{ArrowRight}')
+    expect(screen.getByRole('radio', { name: 'High' })).toHaveFocus()
+    expect(onChange).not.toHaveBeenCalled()
+  })
+
   it('selects an option on click and reports the change (uncontrolled)', async () => {
     const onChange = vi.fn()
     render(<SegmentedControl aria-label="Priority" options={priorities} defaultValue="MEDIUM" onChange={onChange} />)

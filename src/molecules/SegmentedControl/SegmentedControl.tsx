@@ -54,6 +54,7 @@ export default function SegmentedControl({
   disabled = false,
   size = 'md',
   className = '',
+  onKeyDown,
   ...props
 }: SegmentedControlProps) {
   const [inner, setInner] = useState(defaultValue)
@@ -62,7 +63,8 @@ export default function SegmentedControl({
 
   const enabled = options.flatMap((o, i) => (disabled || o.disabled ? [] : [i]))
   const checkedIndex = options.findIndex((o) => o.value === current)
-  const tabbable = checkedIndex >= 0 ? checkedIndex : enabled[0]
+  // A disabled option can't take focus, so it can't be the tab stop even when checked.
+  const tabbable = enabled.includes(checkedIndex) ? checkedIndex : enabled[0]
 
   const select = (index: number) => {
     const next = options[index].value
@@ -72,6 +74,8 @@ export default function SegmentedControl({
   }
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    onKeyDown?.(e)
+    if (e.defaultPrevented) return
     const from = enabled.indexOf(refs.current.indexOf(e.target as HTMLButtonElement))
     const to = targetIndex(e.key, from, enabled)
     if (to === undefined) return
