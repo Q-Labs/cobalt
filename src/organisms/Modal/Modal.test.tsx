@@ -1,6 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { useState } from 'react'
+import { renderToString } from 'react-dom/server'
 import { describe, it, expect, vi, afterEach } from 'vitest'
 import Modal from './Modal'
 
@@ -160,6 +161,33 @@ describe('Modal', () => {
     await userEvent.keyboard('{Escape}')
     expect(screen.queryByRole('dialog')).toBeNull()
     expect(opener).toHaveFocus()
+  })
+
+  it('renders nothing on the server, even when open', () => {
+    expect(renderToString(<Modal open onClose={vi.fn()} title="Add item" />)).toBe('')
+  })
+
+  it('closes only the topmost modal on Escape', async () => {
+    const closeBottom = vi.fn()
+    const closeTop = vi.fn()
+    const { rerender } = render(
+      <>
+        <Modal open onClose={closeBottom} title="Edit item" />
+        <Modal open onClose={closeTop} title="Delete this item?" />
+      </>,
+    )
+    await userEvent.keyboard('{Escape}')
+    expect(closeTop).toHaveBeenCalledOnce()
+    expect(closeBottom).not.toHaveBeenCalled()
+
+    rerender(
+      <>
+        <Modal open onClose={closeBottom} title="Edit item" />
+        <Modal open={false} onClose={closeTop} title="Delete this item?" />
+      </>,
+    )
+    await userEvent.keyboard('{Escape}')
+    expect(closeBottom).toHaveBeenCalledOnce()
   })
 
   it('uses the latest onClose without re-running its setup', async () => {

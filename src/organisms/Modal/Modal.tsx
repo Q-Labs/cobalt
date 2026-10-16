@@ -1,4 +1,4 @@
-import React, { useEffect, useId, useRef } from 'react'
+import React, { useEffect, useId, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import cx from '../../utils/cx'
 import StrokeIcon from '../../utils/StrokeIcon'
@@ -26,6 +26,9 @@ const FOCUSABLE =
 
 const focusablesIn = (el: HTMLElement) => Array.from(el.querySelectorAll<HTMLElement>(FOCUSABLE))
 
+/** Open modals, oldest first. Only the last one answers Escape, so a nested dialog closes alone. */
+const openStack: symbol[] = []
+
 export default function Modal({
   open,
   onClose,
@@ -45,8 +48,15 @@ export default function Modal({
   const onCloseRef = useRef(onClose)
   onCloseRef.current = onClose
 
+  // The portal needs `document`, which doesn't exist during server rendering. Waiting for
+  // the first client effect keeps SSR and hydration output identical (nothing) either way.
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => setMounted(true), [])
+
   useEffect(() => {
-    if (!open) return
+    if (!open || !mounted) return
+    const id = Symbol('modal')
+    openStack.push(id)
     const previous = document.activeElement as HTMLElement
     const previousOverflow = document.body.style.overflow
     document.body.style.overflow = 'hidden'
@@ -56,16 +66,17 @@ export default function Modal({
     initial.focus()
 
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onCloseRef.current()
+      if (e.key === 'Escape' && openStack[openStack.length - 1] === id) onCloseRef.current()
     }
     document.addEventListener('keydown', onKey)
 
     return () => {
+      openStack.splice(openStack.indexOf(id), 1)
       document.removeEventListener('keydown', onKey)
       document.body.style.overflow = previousOverflow
       previous.focus()
     }
-  }, [open])
+  }, [open, mounted])
 
   const trapTab = (e: React.KeyboardEvent<HTMLDivElement>) => {
     if (e.key !== 'Tab') return
@@ -81,7 +92,7 @@ export default function Modal({
     }
   }
 
-  if (!open) return null
+  if (!open || !mounted) return null
 
   return createPortal(
     <div className={styles.root}>
