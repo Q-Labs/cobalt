@@ -24,6 +24,8 @@ export interface ModalProps {
 const FOCUSABLE =
   'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
 
+const focusablesIn = (el: HTMLElement) => Array.from(el.querySelectorAll<HTMLElement>(FOCUSABLE))
+
 export default function Modal({
   open,
   onClose,
@@ -49,9 +51,9 @@ export default function Modal({
     const previousOverflow = document.body.style.overflow
     document.body.style.overflow = 'hidden'
 
-    const focusables = Array.from(panelRef.current!.querySelectorAll<HTMLElement>(FOCUSABLE))
-    const first = focusables.find((el) => el !== closeRef.current) ?? closeRef.current!
-    first.focus()
+    // Start on the first control in the content; the close button is the fallback.
+    const initial = focusablesIn(panelRef.current!).find((el) => el !== closeRef.current) ?? closeRef.current!
+    initial.focus()
 
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onCloseRef.current()
@@ -67,7 +69,7 @@ export default function Modal({
 
   const trapTab = (e: React.KeyboardEvent<HTMLDivElement>) => {
     if (e.key !== 'Tab') return
-    const focusables = Array.from(panelRef.current!.querySelectorAll<HTMLElement>(FOCUSABLE))
+    const focusables = focusablesIn(panelRef.current!)
     const first = focusables[0]
     const last = focusables[focusables.length - 1]
     if (e.shiftKey && document.activeElement === first) {
