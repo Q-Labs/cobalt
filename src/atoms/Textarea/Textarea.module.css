@@ -35,3 +35,9 @@
   cursor: not-allowed;
   resize: none;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .textarea {
+    transition: none;
+  }
+}
