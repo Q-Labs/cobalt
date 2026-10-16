@@ -1,5 +1,3 @@
-import React from 'react'
-
 /** Feather-style line icons used inside Cobalt components. Decorative: always `aria-hidden`. */
 const paths = {
   chevronDown: <polyline points="6 9 12 15 18 9" />,
