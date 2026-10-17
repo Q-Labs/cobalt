@@ -155,6 +155,16 @@ import '@q-labs/cobalt/styles.css'
 
 ---
 
+## Design System Sync
+
+The **Quincy OS Design System** (a Design System artifact on claude.ai) shows the components listed in `design-system/components.json` as live components. A daily scheduled Claude task keeps it in step with `main` in both directions, following `design-system/SYNC.md`.
+
+- Changing one of those components? Update its card and guideline in `design-system/components/<Comp>/` in the same PR if they no longer match.
+- Adding a component to the design system: add it to `components.json` plus its two card files. CI runs `npm run build:ds`, which fails if either is missing.
+- Token edits made in the design system arrive as PRs labelled `design-sync`; review them like any other change.
+
+---
+
 ## Self-Updating README
 
 The `readme.yml` workflow runs on every push to `main`. It counts components, reads coverage from the lcov report, and rewrites the README stats table. Never manually edit the auto-generated section between `<!-- STATS:START -->` and `<!-- STATS:END -->`.

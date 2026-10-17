@@ -1,0 +1,26 @@
+<!-- @dsCard group="Forms" height=80 subtitle="Filter group: click to switch" -->
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Chip — preview</title></head>
+<body style="margin:0;padding:20px;background:var(--bg-base)">
+<div id="root"></div>
+<script>
+  var Q = window.QuincyOSDesignSystem_019dc5, h = React.createElement;
+  var filters = [
+    { id: 'all', label: 'All', count: 8 },
+    { id: 'high', label: 'High', count: 2 },
+    { id: 'medium', label: 'Medium', count: 3 },
+    { id: 'low', label: 'Low', count: 0, disabled: true }
+  ];
+  function FilterRow() {
+    var s = React.useState('all'), active = s[0], setActive = s[1];
+    return h('div', { role: 'group', 'aria-label': 'Filter by priority', style: { display: 'flex', gap: 8, flexWrap: 'wrap' } },
+      filters.map(function (f) {
+        return h(Q.Chip, { key: f.id, count: f.count, disabled: f.disabled, selected: active === f.id,
+          onClick: function () { setActive(f.id); } }, f.label);
+      }));
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(h(FilterRow));
+</script>
+</body>
+</html>

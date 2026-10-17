@@ -1,0 +1,25 @@
+<!-- @dsCard group="Forms" height=190 subtitle="Default, filled and invalid" -->
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Textarea — preview</title></head>
+<body style="margin:0;padding:20px;background:var(--bg-base)">
+<div id="root"></div>
+<script>
+  var Q = window.QuincyOSDesignSystem_019dc5, h = React.createElement;
+  var label = { display: 'block', marginBottom: 6, fontFamily: 'var(--font-body)', fontSize: 'var(--text-xs)', fontWeight: 500, color: 'var(--text-primary)' };
+  var err = { marginTop: 6, fontFamily: 'var(--font-body)', fontSize: 'var(--text-xs)', color: 'var(--text-danger)' };
+  function Field(props) {
+    return h('div', null,
+      h('label', { htmlFor: props.id, style: label }, props.label),
+      h(Q.Textarea, Object.assign({ id: props.id }, props.input)),
+      props.error ? h('div', { id: props.id + '-err', style: err }, props.error) : null);
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(
+    h('div', { style: { display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gap: 16 } },
+      h(Field, { id: 't1', label: 'Notes for guests', input: { placeholder: 'Size, color, anything that helps' } }),
+      h(Field, { id: 't2', label: 'Notes for guests', input: { defaultValue: 'Matte black, clear lenses.' } }),
+      h(Field, { id: 't3', label: 'Notes for guests', error: 'Keep notes under 2,000 characters.',
+        input: { invalid: true, defaultValue: 'A very long note…', 'aria-describedby': 't3-err' } })));
+</script>
+</body>
+</html>
