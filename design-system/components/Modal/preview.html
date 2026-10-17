@@ -1,0 +1,32 @@
+<!-- @dsCard group="Overlays" height=520 subtitle="Dialog, open. Esc or the scrim closes it; the button reopens." -->
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Modal — preview</title></head>
+<body style="margin:0;padding:20px;background:var(--bg-base)">
+<div id="root"></div>
+<script>
+  var Q = window.QuincyOSDesignSystem_019dc5, h = React.createElement;
+  var btn = { fontFamily: 'var(--font-body)', fontSize: 'var(--text-sm)', fontWeight: 500, height: 36, padding: '0 16px',
+    borderRadius: 'var(--radius-md)', cursor: 'pointer' };
+  var primary = Object.assign({}, btn, { background: 'var(--accent-default)', border: '1px solid var(--accent-default)', color: '#fff' });
+  var ghost = Object.assign({}, btn, { background: 'transparent', border: '1px solid var(--border-default)', color: 'var(--text-primary)' });
+  var label = { display: 'block', marginBottom: 6, fontFamily: 'var(--font-body)', fontSize: 'var(--text-xs)', fontWeight: 500, color: 'var(--text-primary)' };
+  function Demo() {
+    var s = React.useState(true), open = s[0], setOpen = s[1];
+    function close() { setOpen(false); }
+    return h(React.Fragment, null,
+      h('button', { type: 'button', style: primary, onClick: function () { setOpen(true); } }, 'Open modal'),
+      h(Q.Modal, {
+        open: open, onClose: close, title: 'Add to Holiday 2026',
+        description: 'Check the details before saving.',
+        footer: h(React.Fragment, null,
+          h('button', { type: 'button', style: ghost, onClick: close }, 'Cancel'),
+          h('button', { type: 'button', style: primary, onClick: close }, 'Save item'))
+      },
+        h('label', { htmlFor: 'm-notes', style: label }, 'Notes for guests'),
+        h(Q.Textarea, { id: 'm-notes', defaultValue: 'Matte black, clear lenses.' })));
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(h(Demo));
+</script>
+</body>
+</html>

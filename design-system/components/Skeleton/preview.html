@@ -1,0 +1,22 @@
+<!-- @dsCard group="Feedback" height=340 subtitle="Text, paragraph, block and circle, composed as a card" -->
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Skeleton — preview</title></head>
+<body style="margin:0;padding:20px;background:var(--bg-base)">
+<div id="root" aria-busy="true" aria-label="Loading item"></div>
+<script>
+  var Q = window.QuincyOSDesignSystem_019dc5, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById('root')).render(
+    h('div', { style: { display: 'flex', gap: 24, alignItems: 'flex-start' } },
+      h('div', { style: { width: 240, display: 'flex', flexDirection: 'column', gap: 12, padding: 16,
+          background: 'var(--bg-surface)', border: '1px solid var(--border-default)', borderRadius: 'var(--radius-lg)' } },
+        h(Q.Skeleton, { variant: 'block' }),
+        h(Q.Skeleton, { width: '40%' }),
+        h(Q.Skeleton, { lines: 2 }),
+        h(Q.Skeleton, { width: 72, height: 18 })),
+      h('div', { style: { display: 'flex', alignItems: 'center', gap: 12, width: 240 } },
+        h(Q.Skeleton, { variant: 'circle' }),
+        h('div', { style: { flex: 1 } }, h(Q.Skeleton, { lines: 2 })))));
+</script>
+</body>
+</html>

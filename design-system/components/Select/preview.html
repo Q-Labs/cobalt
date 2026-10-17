@@ -1,0 +1,28 @@
+<!-- @dsCard group="Forms" height=120 subtitle="Placeholder, chosen, invalid and disabled" -->
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Select — preview</title></head>
+<body style="margin:0;padding:20px;background:var(--bg-base)">
+<div id="root"></div>
+<script>
+  var Q = window.QuincyOSDesignSystem_019dc5, h = React.createElement;
+  var currencies = [
+    { value: 'USD', label: 'USD · US dollar' },
+    { value: 'EUR', label: 'EUR · Euro' },
+    { value: 'GBP', label: 'GBP · British pound' }
+  ];
+  var label = { display: 'block', marginBottom: 6, fontFamily: 'var(--font-body)', fontSize: 'var(--text-xs)', fontWeight: 500, color: 'var(--text-primary)' };
+  function Field(props) {
+    return h('div', null,
+      h('label', { htmlFor: props.id, style: label }, props.label),
+      h(Q.Select, Object.assign({ id: props.id, options: currencies }, props.input)));
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(
+    h('div', { style: { display: 'grid', gridTemplateColumns: 'repeat(4, minmax(0, 1fr))', gap: 16 } },
+      h(Field, { id: 's1', label: 'Currency', input: { placeholder: 'Choose a currency' } }),
+      h(Field, { id: 's2', label: 'Currency', input: { defaultValue: 'EUR' } }),
+      h(Field, { id: 's3', label: 'Currency', input: { placeholder: 'Choose a currency', invalid: true } }),
+      h(Field, { id: 's4', label: 'Currency', input: { defaultValue: 'USD', disabled: true } })));
+</script>
+</body>
+</html>

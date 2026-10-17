@@ -1,0 +1,14 @@
+{
+  "$comment": "Components shown live in the Quincy OS Design System. Each needs design-system/components/<name>/preview.html and README.md. See design-system/SYNC.md.",
+  "artifact": "https://claude.ai/artifact/1MgU6339tmkV64KLUnF38t",
+  "namespace": "QuincyOSDesignSystem_019dc5",
+  "components": [
+    { "name": "Textarea", "source": "src/atoms/Textarea/Textarea.tsx" },
+    { "name": "Select", "source": "src/atoms/Select/Select.tsx" },
+    { "name": "Chip", "source": "src/atoms/Chip/Chip.tsx" },
+    { "name": "SegmentedControl", "source": "src/molecules/SegmentedControl/SegmentedControl.tsx" },
+    { "name": "Skeleton", "source": "src/atoms/Skeleton/Skeleton.tsx" },
+    { "name": "Toast", "source": "src/molecules/Toast/Toast.tsx" },
+    { "name": "Modal", "source": "src/organisms/Modal/Modal.tsx" }
+  ]
+}

@@ -1,0 +1,28 @@
+<!-- @dsCard group="Forms" height=190 subtitle="Medium, small, a disabled option, fully disabled" -->
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>SegmentedControl — preview</title></head>
+<body style="margin:0;padding:20px;background:var(--bg-base)">
+<div id="root"></div>
+<script>
+  var Q = window.QuincyOSDesignSystem_019dc5, h = React.createElement;
+  var priorities = [
+    { value: 'HIGH', label: 'High' },
+    { value: 'MEDIUM', label: 'Medium' },
+    { value: 'LOW', label: 'Low' }
+  ];
+  var cap = { fontFamily: 'var(--font-mono)', fontSize: 'var(--text-2xs)', letterSpacing: '0.04em', color: 'var(--text-secondary)', marginBottom: 6 };
+  function Row(props) {
+    return h('div', null, h('div', { style: cap }, props.caption),
+      h(Q.SegmentedControl, Object.assign({ 'aria-label': 'Priority', options: priorities, defaultValue: 'MEDIUM' }, props.input)));
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(
+    h('div', { style: { display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: 20, maxWidth: 640 } },
+      h(Row, { caption: 'size="md"' }),
+      h(Row, { caption: 'size="sm"', input: { size: 'sm' } }),
+      h(Row, { caption: 'one option disabled', input: { defaultValue: 'HIGH',
+        options: [priorities[0], { value: 'MEDIUM', label: 'Medium', disabled: true }, priorities[2]] } }),
+      h(Row, { caption: 'disabled', input: { disabled: true } })));
+</script>
+</body>
+</html>
