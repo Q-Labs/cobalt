@@ -44,6 +44,21 @@ describe('Select', () => {
     expect(screen.getByRole('combobox')).toHaveValue('')
   })
 
+  it('starts on the placeholder when no value or defaultValue is given', () => {
+    render(<Select aria-label="Currency" options={currencies} placeholder="Choose a currency" />)
+    expect(screen.getByRole('combobox')).toHaveValue('')
+  })
+
+  it('lets defaultValue win over the placeholder', () => {
+    render(<Select aria-label="Currency" options={currencies} placeholder="Choose a currency" defaultValue="EUR" />)
+    expect(screen.getByRole('combobox')).toHaveValue('EUR')
+  })
+
+  it('lets a controlled value win over the placeholder', () => {
+    render(<Select aria-label="Currency" options={currencies} placeholder="Choose a currency" value="USD" onChange={vi.fn()} />)
+    expect(screen.getByRole('combobox')).toHaveValue('USD')
+  })
+
   it('calls onChange and updates the value when the user picks an option', async () => {
     const handler = vi.fn()
     render(<Select aria-label="Currency" options={currencies} onChange={handler} />)
