@@ -121,6 +121,8 @@ for (const { name, source } of components) {
 
 // 4. Optional: merge into the design system's current bundle.
 if (mergeDir) {
+  for (const f of ['bundle.js', 'bundle.css'])
+    if (!existsSync(join(mergeDir, f))) fail(`--merge: ${join(mergeDir, f)} not found (save the design system's current project/components/${f} there)`)
   const js = readFileSync(join(mergeDir, 'bundle.js'), 'utf8')
   const css = readFileSync(join(mergeDir, 'bundle.css'), 'utf8')
   const nl = js.indexOf('\n')
