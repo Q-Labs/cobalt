@@ -50,6 +50,9 @@ Work in a fresh clone of `q-labs/cobalt` at `main`. Read the design system with 
      ONE PR labelled `design-sync`, body `Closes #<issue>`, listing each change with its old and
      new value. If that PR is already open, push to it instead. Run `npm run typecheck` and
      `npm run test:coverage` before pushing.
+   - If `<sha>` isn't in the clone's history (a squash merge can drop it), fetch it
+     (`git fetch origin <sha>`); if that fails, compare against `main` instead and treat every
+     difference as a person's edit. That errs toward a PR for review, never toward overwriting.
    - Do not publish the design system's own edits back to it; they're already there.
 
 3. **Cobalt → design system (only when `main` differs from the synced `<sha>`).**
