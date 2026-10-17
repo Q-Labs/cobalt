@@ -43,15 +43,31 @@ export default function Modal({
 }: ModalProps) {
   const titleId = useId()
   const descriptionId = useId()
+  const anchorRef = useRef<HTMLSpanElement>(null)
+  const rootRef = useRef<HTMLDivElement>(null)
   const panelRef = useRef<HTMLDivElement>(null)
   const closeRef = useRef<HTMLButtonElement>(null)
   const onCloseRef = useRef(onClose)
   onCloseRef.current = onClose
 
+  // The portal sits on <body>, outside any CobaltProvider, so it re-applies the nearest
+  // ancestor's theme, found from a hidden anchor left in place.
+  const [theme, setTheme] = useState<string>()
+  const readTheme = () => anchorRef.current!.closest('[data-theme]')?.getAttribute('data-theme') ?? undefined
+
   // The portal needs `document`, which doesn't exist during server rendering. Waiting for
-  // the first client effect keeps SSR and hydration output identical (nothing) either way.
+  // the first client effect keeps SSR and hydration output identical either way. The theme
+  // is read in the same pass, so the first open paints in the right theme.
   const [mounted, setMounted] = useState(false)
-  useEffect(() => setMounted(true), [])
+  useEffect(() => {
+    setMounted(true)
+    setTheme(readTheme())
+  }, [])
+
+  // Re-read on each open in case the theme was switched while the modal was closed.
+  useEffect(() => {
+    if (open) setTheme(readTheme())
+  }, [open])
 
   useEffect(() => {
     if (!open || !mounted) return
@@ -61,12 +77,19 @@ export default function Modal({
     const previousOverflow = document.body.style.overflow
     document.body.style.overflow = 'hidden'
 
+    // Take the rest of the page out of reach (Tab, clicks, screen-reader browsing) while open.
+    const madeInert = Array.from(document.body.children).filter(
+      (el) => el !== rootRef.current && !el.hasAttribute('inert'),
+    )
+    madeInert.forEach((el) => el.setAttribute('inert', ''))
+
     // Start on the first control in the content; the close button is the fallback.
     const initial = focusablesIn(panelRef.current!).find((el) => el !== closeRef.current) ?? closeRef.current!
     initial.focus()
 
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && openStack[openStack.length - 1] === id) onCloseRef.current()
+      // Skip an Escape that content inside already handled (a combobox closing its own list).
+      if (e.key === 'Escape' && !e.defaultPrevented && openStack[openStack.length - 1] === id) onCloseRef.current()
     }
     document.addEventListener('keydown', onKey)
 
@@ -74,7 +97,8 @@ export default function Modal({
       openStack.splice(openStack.indexOf(id), 1)
       document.removeEventListener('keydown', onKey)
       document.body.style.overflow = previousOverflow
-      previous.focus()
+      madeInert.forEach((el) => el.removeAttribute('inert'))
+      previous.focus() // after removing inert: an inert element can't take focus
     }
   }, [open, mounted])
 
@@ -92,40 +116,47 @@ export default function Modal({
     }
   }
 
-  if (!open || !mounted) return null
+  // An empty, hidden anchor stays in place so the modal can find its themed ancestor.
+  const anchor = <span ref={anchorRef} hidden />
+  if (!open || !mounted) return anchor
 
-  return createPortal(
-    <div className={styles.root}>
-      <div className={styles.scrim} aria-hidden="true" onMouseDown={closeOnScrim ? onClose : undefined} />
-      <div
-        ref={panelRef}
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby={titleId}
-        aria-describedby={description ? descriptionId : undefined}
-        className={cx(styles.panel, styles[`panel--${variant}`], className)}
-        onKeyDown={trapTab}
-      >
-        <div className={styles.grabber} aria-hidden="true" />
-        <div className={styles.header}>
-          <div className={styles.heading}>
-            <h2 id={titleId} className={styles.title}>
-              {title}
-            </h2>
-            {description && (
-              <p id={descriptionId} className={styles.description}>
-                {description}
-              </p>
-            )}
+  return (
+    <>
+      {anchor}
+      {createPortal(
+        <div ref={rootRef} className={styles.root} data-theme={theme}>
+          <div className={styles.scrim} aria-hidden="true" onMouseDown={closeOnScrim ? onClose : undefined} />
+          <div
+            ref={panelRef}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby={titleId}
+            aria-describedby={description ? descriptionId : undefined}
+            className={cx(styles.panel, styles[`panel--${variant}`], className)}
+            onKeyDown={trapTab}
+          >
+            <div className={styles.grabber} aria-hidden="true" />
+            <div className={styles.header}>
+              <div className={styles.heading}>
+                <h2 id={titleId} className={styles.title}>
+                  {title}
+                </h2>
+                {description && (
+                  <p id={descriptionId} className={styles.description}>
+                    {description}
+                  </p>
+                )}
+              </div>
+              <button ref={closeRef} type="button" className={styles.close} aria-label={closeLabel} onClick={onClose}>
+                <StrokeIcon name="x" size={18} />
+              </button>
+            </div>
+            {children && <div className={styles.body}>{children}</div>}
+            {footer && <div className={styles.footer}>{footer}</div>}
           </div>
-          <button ref={closeRef} type="button" className={styles.close} aria-label={closeLabel} onClick={onClose}>
-            <StrokeIcon name="x" size={18} />
-          </button>
-        </div>
-        {children && <div className={styles.body}>{children}</div>}
-        {footer && <div className={styles.footer}>{footer}</div>}
-      </div>
-    </div>,
-    document.body,
+        </div>,
+        document.body,
+      )}
+    </>
   )
 }

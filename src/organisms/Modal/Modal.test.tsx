@@ -163,8 +163,63 @@ describe('Modal', () => {
     expect(opener).toHaveFocus()
   })
 
-  it('renders nothing on the server, even when open', () => {
-    expect(renderToString(<Modal open onClose={vi.fn()} title="Add item" />)).toBe('')
+  it('renders no dialog on the server, even when open', () => {
+    expect(renderToString(<Modal open onClose={vi.fn()} title="Add item" />)).not.toContain('role="dialog"')
+  })
+
+  it('carries the theme of the nearest themed ancestor into the portal', () => {
+    render(
+      <div data-theme="light">
+        <Modal open onClose={vi.fn()} title="T" />
+      </div>,
+    )
+    expect(screen.getByRole('dialog').closest('[data-theme]')).toHaveAttribute('data-theme', 'light')
+  })
+
+  it('sets no theme on the portal when no ancestor has one', () => {
+    render(<Modal open onClose={vi.fn()} title="T" />)
+    expect(screen.getByRole('dialog').closest('[data-theme]')).toBeNull()
+  })
+
+  it('makes the rest of the page inert while open, and restores it on close', () => {
+    const { rerender } = render(
+      <>
+        <button>Behind</button>
+        <Modal open onClose={vi.fn()} title="T" />
+      </>,
+    )
+    const behind = screen.getByRole('button', { name: 'Behind', hidden: true })
+    expect(behind.closest('[inert]')).not.toBeNull()
+    expect(screen.getByRole('dialog').closest('[inert]')).toBeNull()
+
+    rerender(
+      <>
+        <button>Behind</button>
+        <Modal open={false} onClose={vi.fn()} title="T" />
+      </>,
+    )
+    expect(behind.closest('[inert]')).toBeNull()
+  })
+
+  it('leaves elements that were already inert alone on close', () => {
+    const outside = document.createElement('div')
+    outside.setAttribute('inert', '')
+    document.body.appendChild(outside)
+    const { unmount } = render(<Modal open onClose={vi.fn()} title="T" />)
+    unmount()
+    expect(outside).toHaveAttribute('inert')
+    outside.remove()
+  })
+
+  it('does not close on an Escape that content already handled', async () => {
+    const onClose = vi.fn()
+    render(
+      <Modal open onClose={onClose} title="T">
+        <input aria-label="Search" onKeyDown={(e) => e.key === 'Escape' && e.preventDefault()} />
+      </Modal>,
+    )
+    await userEvent.keyboard('{Escape}')
+    expect(onClose).not.toHaveBeenCalled()
   })
 
   it('closes only the topmost modal on Escape', async () => {
