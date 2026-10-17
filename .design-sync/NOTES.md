@@ -1,3 +1,8 @@
+> **Superseded (Oct 2026).** This folder synced into *standalone* Claude Design, which closes
+> Dec 14, 2026. The Quincy OS Design System now lives in Claude as a Design System artifact and
+> is kept in step with Cobalt by the daily sync in [`design-system/SYNC.md`](../design-system/SYNC.md).
+> Don't run `/design-sync` against the project below. Kept for history.
+
 # design-sync notes
 
 ## Target project
