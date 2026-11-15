@@ -22,4 +22,15 @@ describe('Topbar', () => {
     const { container } = render(<Topbar title="CC" className="extra" />)
     expect(container.firstChild).toHaveClass('extra')
   })
+
+  it('renders the title in a span by default, so existing usage is unchanged', () => {
+    render(<Topbar title="Command Center" />)
+    expect(screen.getByText('Command Center').tagName).toBe('SPAN')
+    expect(screen.queryByRole('heading')).not.toBeInTheDocument()
+  })
+
+  it.each([1, 2, 3] as const)('renders the title as an h%i when titleAs asks for one', (level) => {
+    render(<Topbar title="Command Center" titleAs={`h${level}`} />)
+    expect(screen.getByRole('heading', { level, name: 'Command Center' })).toBeInTheDocument()
+  })
 })

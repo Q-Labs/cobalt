@@ -15,3 +15,4 @@ type Story = StoryObj<typeof Topbar>
 export const Default: Story = { args: { title: 'Command Center' } }
 export const WithMeta: Story = { args: { title: 'Command Center', meta: 'Last updated: 2m ago' } }
 export const WithActions: Story = { args: { title: 'Command Center', actions: <Button size="sm">Refresh</Button> } }
+export const AsPageHeading: Story = { args: { title: 'Command Center', meta: 'Last updated: 2m ago', titleAs: 'h1' } }
