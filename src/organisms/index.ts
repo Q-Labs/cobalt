@@ -5,7 +5,7 @@ export { default as TopNav } from './TopNav'
 export type { TopNavProps } from './TopNav'
 
 export { default as Topbar } from './Topbar'
-export type { TopbarProps } from './Topbar'
+export type { TopbarProps, TopbarTitleElement } from './Topbar'
 
 export { default as Hero } from './Hero'
 export type { HeroProps } from './Hero'

@@ -12,6 +12,7 @@
 .left { display: flex; flex-direction: column; gap: 2px; }
 
 .title {
+  margin: 0;
   font-family: var(--font-display);
   font-size: var(--text-lg);
   font-weight: var(--weight-semibold);

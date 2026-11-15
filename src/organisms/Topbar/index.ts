@@ -1,2 +1,2 @@
 export { default } from './Topbar'
-export type { TopbarProps } from './Topbar'
+export type { TopbarProps, TopbarTitleElement } from './Topbar'

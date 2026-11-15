@@ -16,7 +16,7 @@ export type { NavItemProps, MetricCardProps, DeltaDirection, StatItemProps, Sign
 
 // Organisms
 export { Card, TopNav, Topbar, Hero, ProjectCard, FeatureCard, Sidebar, StatsRow, ExperienceBlock, StatusBar } from './organisms'
-export type { CardProps, TopNavProps, TopbarProps, HeroProps, ProjectCardProps, FeatureCardProps, SidebarProps, StatsRowProps, ExperienceBlockProps, StatusBarProps } from './organisms'
+export type { CardProps, TopNavProps, TopbarProps, TopbarTitleElement, HeroProps, ProjectCardProps, FeatureCardProps, SidebarProps, StatsRowProps, ExperienceBlockProps, StatusBarProps } from './organisms'
 
 // Templates
 export { DashboardLayout, PortfolioLayout, ResumeLayout, LandingLayout } from './templates'
