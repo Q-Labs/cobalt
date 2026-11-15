@@ -7,6 +7,10 @@ export interface TopbarProps extends React.HTMLAttributes<HTMLDivElement> {
   title: string
   meta?: string
   actions?: React.ReactNode
+  /**
+   * Element the title renders as. Defaults to `span`. Use a heading (usually
+   * `h1`) when the Topbar is the page header, so assistive tech can find it.
+   */
   titleAs?: TopbarTitleElement
 }
 
