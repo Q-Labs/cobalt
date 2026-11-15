@@ -1,5 +1,11 @@
 # @q-labs/cobalt
 
+## 0.3.0
+
+### Minor Changes
+
+- 0aed53b: Topbar: new optional `titleAs` prop (`'span' | 'h1' | 'h2' | 'h3'`, default `'span'`) so a Topbar used as a page header can expose its title as a heading. Existing usage is unchanged.
+
 ## 0.2.0
 
 ### Minor Changes
