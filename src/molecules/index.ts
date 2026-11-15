@@ -33,3 +33,9 @@ export type { ExperienceRoleProps } from './ExperienceRole'
 
 export { default as EducationEntry } from './EducationEntry'
 export type { EducationEntryProps } from './EducationEntry'
+
+export { default as SegmentedControl } from './SegmentedControl'
+export type { SegmentedControlProps, SegmentedOption, SegmentedControlSize } from './SegmentedControl'
+
+export { default as Toast } from './Toast'
+export type { ToastProps, ToastVariant } from './Toast'

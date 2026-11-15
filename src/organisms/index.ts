@@ -27,3 +27,6 @@ export type { ExperienceBlockProps } from './ExperienceBlock'
 
 export { default as StatusBar } from './StatusBar'
 export type { StatusBarProps } from './StatusBar'
+
+export { default as Modal } from './Modal'
+export type { ModalProps, ModalVariant } from './Modal'

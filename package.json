@@ -27,6 +27,11 @@
       "import": "./dist/esm/atoms/Button/Button.js",
       "require": "./dist/cjs/atoms/Button/Button.cjs"
     },
+    "./Chip": {
+      "types": "./dist/esm/atoms/Chip/Chip.d.ts",
+      "import": "./dist/esm/atoms/Chip/Chip.js",
+      "require": "./dist/cjs/atoms/Chip/Chip.cjs"
+    },
     "./Divider": {
       "types": "./dist/esm/atoms/Divider/Divider.d.ts",
       "import": "./dist/esm/atoms/Divider/Divider.js",
@@ -57,6 +62,16 @@
       "import": "./dist/esm/atoms/ProgressMini/ProgressMini.js",
       "require": "./dist/cjs/atoms/ProgressMini/ProgressMini.cjs"
     },
+    "./Select": {
+      "types": "./dist/esm/atoms/Select/Select.d.ts",
+      "import": "./dist/esm/atoms/Select/Select.js",
+      "require": "./dist/cjs/atoms/Select/Select.cjs"
+    },
+    "./Skeleton": {
+      "types": "./dist/esm/atoms/Skeleton/Skeleton.d.ts",
+      "import": "./dist/esm/atoms/Skeleton/Skeleton.js",
+      "require": "./dist/cjs/atoms/Skeleton/Skeleton.cjs"
+    },
     "./StatusDot": {
       "types": "./dist/esm/atoms/StatusDot/StatusDot.d.ts",
       "import": "./dist/esm/atoms/StatusDot/StatusDot.js",
@@ -66,6 +81,11 @@
       "types": "./dist/esm/atoms/Tag/Tag.d.ts",
       "import": "./dist/esm/atoms/Tag/Tag.js",
       "require": "./dist/cjs/atoms/Tag/Tag.cjs"
+    },
+    "./Textarea": {
+      "types": "./dist/esm/atoms/Textarea/Textarea.d.ts",
+      "import": "./dist/esm/atoms/Textarea/Textarea.js",
+      "require": "./dist/cjs/atoms/Textarea/Textarea.cjs"
     },
     "./ContactItem": {
       "types": "./dist/esm/molecules/ContactItem/ContactItem.d.ts",
@@ -102,6 +122,11 @@
       "import": "./dist/esm/molecules/QuickStatRow/QuickStatRow.js",
       "require": "./dist/cjs/molecules/QuickStatRow/QuickStatRow.cjs"
     },
+    "./SegmentedControl": {
+      "types": "./dist/esm/molecules/SegmentedControl/SegmentedControl.d.ts",
+      "import": "./dist/esm/molecules/SegmentedControl/SegmentedControl.js",
+      "require": "./dist/cjs/molecules/SegmentedControl/SegmentedControl.cjs"
+    },
     "./SignalItem": {
       "types": "./dist/esm/molecules/SignalItem/SignalItem.d.ts",
       "import": "./dist/esm/molecules/SignalItem/SignalItem.js",
@@ -121,6 +146,11 @@
       "types": "./dist/esm/molecules/TimelineItem/TimelineItem.d.ts",
       "import": "./dist/esm/molecules/TimelineItem/TimelineItem.js",
       "require": "./dist/cjs/molecules/TimelineItem/TimelineItem.cjs"
+    },
+    "./Toast": {
+      "types": "./dist/esm/molecules/Toast/Toast.d.ts",
+      "import": "./dist/esm/molecules/Toast/Toast.js",
+      "require": "./dist/cjs/molecules/Toast/Toast.cjs"
     },
     "./UserBlock": {
       "types": "./dist/esm/molecules/UserBlock/UserBlock.d.ts",
@@ -146,6 +176,11 @@
       "types": "./dist/esm/organisms/Hero/Hero.d.ts",
       "import": "./dist/esm/organisms/Hero/Hero.js",
       "require": "./dist/cjs/organisms/Hero/Hero.cjs"
+    },
+    "./Modal": {
+      "types": "./dist/esm/organisms/Modal/Modal.d.ts",
+      "import": "./dist/esm/organisms/Modal/Modal.js",
+      "require": "./dist/cjs/organisms/Modal/Modal.cjs"
     },
     "./ProjectCard": {
       "types": "./dist/esm/organisms/ProjectCard/ProjectCard.d.ts",
