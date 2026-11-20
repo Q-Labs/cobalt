@@ -131,6 +131,25 @@
   --radius-xl:   16px;
   --radius-2xl:  24px;
   --radius-full: 9999px;
+
+  /* Motion */
+  --ease-out:      cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --duration-fast: 150ms;
+  --duration-base: 200ms;
+
+  /* Focus */
+  --focus-width:  2px;
+  --focus-offset: 3px;
+
+  /* Layout */
+  --measure: 680px; /* long-form reading width, ~70 characters */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration-base: 0ms;
+  }
 }
 
 /* ─── DARK MODE (default) ───────────────────────────────────────────────────── */
@@ -147,6 +166,13 @@
   --border-default: rgba(255, 255, 255, 0.09);
   --border-strong:  rgba(255, 255, 255, 0.15);
   --border-accent:  var(--cobalt-500);
+  --border-strong-hover: rgba(255, 255, 255, 0.3);
+  --border-danger:  rgba(248, 75, 75, 0.3);
+
+  --tint-subtle:  rgba(255, 255, 255, 0.03); /* row / ghost hover */
+  --tint-default: rgba(255, 255, 255, 0.05); /* row pressed */
+  --tint-strong:  rgba(255, 255, 255, 0.09); /* nav link hover */
+  --bg-scrim:     rgba(4, 5, 8, 0.85);       /* sticky header glass; pair with backdrop-filter: blur(16px) */
 
   --text-primary:   #EEF0F5;
   --text-secondary: #8B95A8;
@@ -155,10 +181,17 @@
   --text-inverse:   var(--black-950);
   --text-accent:    var(--cobalt-300);
   --text-danger:    var(--crimson-400);
+  --text-link:       var(--cobalt-300);
+  --text-link-hover: var(--text-primary);
 
+  /* White on cobalt-400 is 3.68:1 (fails AA); cobalt-600 is 6.70:1. */
   --accent-default: var(--cobalt-500);
-  --accent-hover:   var(--cobalt-400);
-  --accent-pressed: var(--cobalt-600);
+  --accent-hover:   var(--cobalt-600);
+  --accent-pressed: var(--cobalt-700);
+  --accent-bar:     var(--cobalt-400); /* current-page indicator */
+
+  --focus-color: var(--cobalt-400); /* 5.54:1 on bg-base */
+  --focus-ring:  var(--focus-width) solid var(--focus-color);
   --accent-subtle:  rgba(37, 99, 235, 0.12);
   --accent-glow:    rgba(37, 99, 235, 0.25);
 
@@ -197,6 +230,13 @@
   --border-default: rgba(0, 0, 0, 0.08);
   --border-strong:  rgba(0, 0, 0, 0.14);
   --border-accent:  var(--cobalt-500);
+  --border-strong-hover: rgba(0, 0, 0, 0.24);
+  --border-danger:  rgba(196, 19, 19, 0.3);
+
+  --tint-subtle:  rgba(0, 0, 0, 0.03);
+  --tint-default: rgba(0, 0, 0, 0.05);
+  --tint-strong:  rgba(0, 0, 0, 0.08);
+  --bg-scrim:     rgba(247, 248, 250, 0.85);
 
   --text-primary:   #0D0F14;
   --text-secondary: #3D4A5C;
@@ -205,10 +245,16 @@
   --text-inverse:   var(--off-white);
   --text-accent:    var(--cobalt-600);
   --text-danger:    var(--crimson-600);
+  --text-link:       var(--cobalt-600);
+  --text-link-hover: var(--text-primary);
 
   --accent-default: var(--cobalt-500);
   --accent-hover:   var(--cobalt-600);
   --accent-pressed: var(--cobalt-700);
+  --accent-bar:     var(--cobalt-500);
+
+  --focus-color: var(--cobalt-500);
+  --focus-ring:  var(--focus-width) solid var(--focus-color);
   --accent-subtle:  rgba(37, 99, 235, 0.08);
   --accent-glow:    rgba(37, 99, 235, 0.15);
 
